@@ -17,9 +17,7 @@ internal class Program
         builder.Services.AddSwaggerGen();
         var app = builder.Build();
 
-
         app.MapGet("/minimalApi/movie", async (IMovieRepository _repo) => await _repo.GetAllMoviesAsync());
-
         app.MapPost("/minimalApi/postMovie", async (IMovieRepository _repo, Movie m) =>
         {
             if (await _repo.AddMovieAsync(m) != null)
@@ -28,17 +26,16 @@ internal class Program
             }
             return Results.BadRequest();
         });
+        app.MapDelete("/minimalApi/deleteMovie", async (IMovieRepository _repo, string title) =>
+        {
 
-        // app.MapDelete("/minimalApi/deleteMovie", async (IMovieRepository _repo, Movie m) =>  // FIXA
-        // {
-        //     if (await _repo.DeleteMovieAsync(m) != null)
-        //     {
-        //         return Results.Ok();
-        //     }
-        //     return Results.BadRequest(); ;
+            if (!string.IsNullOrEmpty(title) && await _repo.DeleteMovieAsync(title) != null)
+            {
+                return Results.Ok();
+            }
+            return Results.BadRequest(); ;
 
-        // });
-
+        });
         app.MapGet("/", async () => await Task.Run(() => "Hello World!"));
 
         app.Run();

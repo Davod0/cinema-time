@@ -1,6 +1,6 @@
-- [ ] Lägga till nya filmer som skall kunna visas
-- [ ] Ta bort filmer
-- [ ] Hämta en lista på tillgängliga filmer (Detta är alltså inte samma som att visa schemat för visningar!)
+- [*] Lägga till nya filmer som skall kunna visas
+- [*] Ta bort filmer
+- [*] Hämta en lista på tillgängliga filmer (Detta är alltså inte samma som att visa schemat för visningar!)
 
 - [ ] Lägga till nya salonger med ett visst antal platser
 - [ ] Uppdatera och ta bort salongsinformation

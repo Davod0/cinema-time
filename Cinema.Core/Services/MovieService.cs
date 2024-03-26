@@ -34,13 +34,12 @@ public class MovieService
         return null;
     }
 
-    public async Task<Movie> DeleteMovieAsync(Movie m)
+    public async Task<Movie> DeleteMovieAsync(string title)
     {
-        if (m != null)
+        if (title != null)
         {
-            Movie deletedMovie = m;
-            await _iMovieRepo.DeleteMovieAsync(m);
-            if (_iMovieRepo.FindMovieAsync(m) == null)
+            Movie deletedMovie = await _iMovieRepo.DeleteMovieAsync(title);
+            if (deletedMovie != null)
             {
                 return deletedMovie;
             }

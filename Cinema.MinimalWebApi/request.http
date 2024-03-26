@@ -1,8 +1,4 @@
 
-GET http://localhost:5106
-
-####
-
 GET http://localhost:5106/minimalApi/movie
 
 ####
@@ -25,12 +21,11 @@ Content-Type: application/json
 
 ####
 
-
 Post http://localhost:5106/minimalApi/postMovie
 Content-Type: application/json
 
 {
-  "Title": "Bad Guy",
+  "Title": "The Dark Jungle",
   "Description": "Good movie",
   "Genre": "Action",
   "AgeLimit": 18,
@@ -44,10 +39,15 @@ Content-Type: application/json
 
 ####
 
+DELETE http://localhost:5106/minimalApi/deleteMovie?title=Bad%20Guy
+Content-Type: application/json
+
+
+#### DEn ska fixas______________________
 DELETE  http://localhost:5106/minimalApi/deleteMovie
 Content-Type: application/json
 
 {
-      "Title": "Bog Boy",
-      "Id": 1
+  "Title": "Bad Guy"
 }
+

@@ -1,6 +1,7 @@
 namespace Cinema.Infrastructure;
 
 using System.Collections.Generic;
+using System.Net;
 using System.Threading.Tasks;
 using Cinema.Core;
 using Microsoft.EntityFrameworkCore;
@@ -20,10 +21,14 @@ public class EFMovieRepository : IMovieRepository
         return m;
     }
 
-    public async Task<Movie> DeleteMovieAsync(Movie m)
+    public async Task<Movie> DeleteMovieAsync(string title)
     {
-        _dB.Movies.Remove(m);
-        await _dB.SaveChangesAsync();
+        Movie? m = _dB.Movies.Where(movie => movie.Title == title).FirstOrDefault();
+        if (m != null)
+        {
+            _dB.Movies.Remove(m);
+            await _dB.SaveChangesAsync();
+        }
         return m;
     }
 
