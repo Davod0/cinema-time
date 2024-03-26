@@ -20,7 +20,7 @@ public static class DbContextInfrastructure
         }
         else
         {
-            services.AddDbContext<CinemaDbContext>(opt => opt.UseSqlite("Data Source=database.db"));
+            services.AddDbContext<CinemaDbContext>(opt => opt.UseSqlite("Data Source=Cinema.Infrastructure/database.db"));
         }
     }
 }

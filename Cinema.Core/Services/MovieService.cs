@@ -24,7 +24,7 @@ public class MovieService
         }
         return null;
     }
-    public async Task<List<Movie>> GetAllMoviesAsync(Movie m)
+    public async Task<List<Movie>> GetAllMoviesAsync()
     {
         List<Movie> movies = await _iMovieRepo.GetAllMoviesAsync();
         if (movies != null)
@@ -38,10 +38,11 @@ public class MovieService
     {
         if (m != null)
         {
+            Movie deletedMovie = m;
             await _iMovieRepo.DeleteMovieAsync(m);
             if (_iMovieRepo.FindMovieAsync(m) == null)
             {
-                return m;
+                return deletedMovie;
             }
         }
         return null;
