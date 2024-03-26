@@ -1,2 +1,53 @@
 
 GET http://localhost:5106
+
+####
+
+GET http://localhost:5106/minimalApi/movie
+
+####
+
+Post http://localhost:5106/minimalApi/postMovie
+Content-Type: application/json
+
+{
+  "Title": "King kung",
+  "Description": "Good movie",
+  "Genre": "Action",
+  "AgeLimit": 18,
+  "Language": "English",
+  "UnderText": "Underlying text",
+  "Actors": ["Jakc", "Joe"],
+  "Direction": ["Davod"],
+  "ReleaseDate": "2023-05-15",
+  "Time": "12:30:00"
+}
+
+####
+
+
+Post http://localhost:5106/minimalApi/postMovie
+Content-Type: application/json
+
+{
+  "Title": "Bad Guy",
+  "Description": "Good movie",
+  "Genre": "Action",
+  "AgeLimit": 18,
+  "Language": "English",
+  "UnderText": "Underlying text",
+  "Actors": ["Jakc", "Joe"],
+  "Direction": ["Davod"],
+  "ReleaseDate": "2023-05-15",
+  "Time": "12:30:00"
+}
+
+####
+
+DELETE  http://localhost:5106/minimalApi/deleteMovie
+Content-Type: application/json
+
+{
+      "Title": "Bog Boy",
+      "Id": 1
+}
