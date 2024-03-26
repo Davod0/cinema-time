@@ -49,19 +49,3 @@ public class MovieService
 }
 
 
-// public async Task<Movie> AddMovieAsync(Movie m)
-// {
-//     if (m != null && m.Title.Length >= 2)
-//     {
-//         await _iMovieRepo.AddMovieAsync(m);
-//         if (m.Id != 0)
-//         {
-//             return m;
-//         }
-//         else
-//         {
-//             return null;
-//         }
-//     }
-//     return null;
-// }

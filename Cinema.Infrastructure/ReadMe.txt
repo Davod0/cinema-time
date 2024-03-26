@@ -1,6 +1,7 @@
 dotnet add package Microsoft.EntityFrameworkCore 
 
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite 
+Microsoft.EntityFrameworkCore.InMemory
 
 dotnet tool install --global dotnet-ef ***
 

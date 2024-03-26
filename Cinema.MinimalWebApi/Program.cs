@@ -1,7 +1,8 @@
 namespace Cinema.MinimalWebApi;
 using Cinema.Infrastructure;
 using Cinema.Core;
-
+using Microsoft.EntityFrameworkCore;
+using Swashbuckle;
 
 internal class Program
 {
@@ -9,17 +10,15 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        DbContextInfrastructure.AddDbContext(builder.Services);
-        builder.Services.AddScoped<IMovieRepository, MovieRepository>();
+        DbContextInfrastructure.AddDbContext(builder.Configuration, builder.Services);
+        builder.Services.AddScoped<IMovieRepository, EFMovieRepository>();
         builder.Services.AddEndpointsApiExplorer();
+        builder.Services.AddSwaggerGen();
         var app = builder.Build();
 
-        // Här ska läggas inställningar för att skappa databasen
-
-
-
-        app.MapGet("/", () => "Hello World!");
+        app.MapGet("/movie", () => "Hello World!");
 
         app.Run();
     }
 }
+
