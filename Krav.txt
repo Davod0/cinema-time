@@ -4,8 +4,10 @@
 
 - [ ] Lägga till nya salonger med ett visst antal platser
 - [ ] Uppdatera och ta bort salongsinformation
+
 - [ ] Lägga till nya visningar
 - [ ] Hämta alla **kommande** visningar
+
 - [ ] Lista alla reservationer
 - [ ] Lista alla reservationer för en viss visning
 VG

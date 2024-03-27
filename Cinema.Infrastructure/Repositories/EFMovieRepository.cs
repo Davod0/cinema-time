@@ -1,7 +1,6 @@
 namespace Cinema.Infrastructure;
 
 using System.Collections.Generic;
-using System.Net;
 using System.Threading.Tasks;
 using Cinema.Core;
 using Microsoft.EntityFrameworkCore;

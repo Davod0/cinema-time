@@ -1,6 +1,23 @@
-@Cinema.WebApi_HostAddress = http://localhost:5204
 
-GET {{Cinema.WebApi_HostAddress}}/weatherforecast/
-Accept: application/json
 
-###
+Get http://localhost:5204/salon
+
+
+####
+
+Post http://localhost:5204/salon
+Content-Type: application/json
+
+{
+  "Name": "Small",
+  "Nummber": 15,
+  "ChairQuantity": 50
+}
+
+####
+
+DELETE http://localhost:5204/salon/11
+Content-Type: application/json
+
+
+

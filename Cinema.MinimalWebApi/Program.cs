@@ -16,6 +16,11 @@ internal class Program
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
         var app = builder.Build();
+        if (app.Environment.IsDevelopment())
+        {
+            app.UseSwagger();
+            app.UseSwaggerUI();
+        }
 
         app.MapGet("/minimalApi/movie", async (IMovieRepository _repo) => await _repo.GetAllMoviesAsync());
         app.MapPost("/minimalApi/postMovie", async (IMovieRepository _repo, Movie m) =>
@@ -36,7 +41,6 @@ internal class Program
             return Results.BadRequest(); ;
 
         });
-        app.MapGet("/", async () => await Task.Run(() => "Hello World!"));
 
         app.Run();
     }
