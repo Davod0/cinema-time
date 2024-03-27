@@ -1,6 +1,6 @@
 namespace Cinema.Core;
 
-public class SalonService
+public class SalonService : ISalonService
 {
     private readonly ISalonRepository _salonRepo;
     public SalonService(ISalonRepository iSalonRepository)

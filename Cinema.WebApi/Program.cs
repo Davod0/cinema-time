@@ -11,7 +11,7 @@ internal class Program
         DbContextInfrastructure.AddDbContext(builder.Configuration, builder.Services);
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddScoped<SalonService>();
+        builder.Services.AddScoped<ISalonService, SalonService>();
         builder.Services.AddScoped<ISalonRepository, EFSalonRepository>();
         builder.Services.AddControllers();
         var app = builder.Build();

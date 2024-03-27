@@ -10,13 +10,13 @@ Content-Type: application/json
 
 {
   "Name": "Small",
-  "Nummber": 15,
+  "Nummber": 16,
   "ChairQuantity": 50
 }
 
 ####
 
-DELETE http://localhost:5204/salon/11
+DELETE http://localhost:5204/salon/12
 Content-Type: application/json
 
 

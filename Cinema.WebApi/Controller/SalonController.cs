@@ -7,8 +7,8 @@ using Cinema.Core;
 [Route("salon")]
 public class SalonController : ControllerBase
 {
-    private readonly SalonService _service;
-    public SalonController(SalonService salonService)
+    private readonly ISalonService _service;
+    public SalonController(ISalonService salonService)
     {
         _service = salonService;
     }
