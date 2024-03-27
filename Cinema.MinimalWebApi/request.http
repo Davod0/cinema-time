@@ -7,10 +7,10 @@ Post http://localhost:5106/minimalApi/postMovie
 Content-Type: application/json
 
 {
-  "Title": "King kung",
+  "Title": "The Lonely",
   "Description": "Good movie",
   "Genre": "Action",
-  "AgeLimit": 18,
+  "AgeLimit": 13,
   "Language": "English",
   "UnderText": "Underlying text",
   "Actors": ["Jakc", "Joe"],
@@ -19,35 +19,16 @@ Content-Type: application/json
   "Time": "12:30:00"
 }
 
-####
-
-Post http://localhost:5106/minimalApi/postMovie
-Content-Type: application/json
-
-{
-  "Title": "The Dark Jungle",
-  "Description": "Good movie",
-  "Genre": "Action",
-  "AgeLimit": 18,
-  "Language": "English",
-  "UnderText": "Underlying text",
-  "Actors": ["Jakc", "Joe"],
-  "Direction": ["Davod"],
-  "ReleaseDate": "2023-05-15",
-  "Time": "12:30:00"
-}
 
 ####
 
-DELETE http://localhost:5106/minimalApi/deleteMovie?title=Bad%20Guy
+DELETE http://localhost:5106/minimalApi/deleteMovie?id=12
 Content-Type: application/json
 
 
 #### DEn ska fixas______________________
-DELETE  http://localhost:5106/minimalApi/deleteMovie
+DELETE  http://localhost:5106/minimalApi/deleteMovie/12
 Content-Type: application/json
 
-{
-  "Title": "Bad Guy"
-}
+
 

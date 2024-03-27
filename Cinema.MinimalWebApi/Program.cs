@@ -31,10 +31,10 @@ internal class Program
             }
             return Results.BadRequest();
         });
-        app.MapDelete("/minimalApi/deleteMovie", async (IMovieRepository _repo, string title) =>
+        app.MapDelete("/minimalApi/deleteMovie", async (IMovieRepository _repo, int id) =>
         {
 
-            if (!string.IsNullOrEmpty(title) && await _repo.DeleteMovieAsync(title) != null)
+            if (await _repo.DeleteMovieAsync(id) != null)
             {
                 return Results.Ok();
             }
