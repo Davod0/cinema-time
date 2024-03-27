@@ -20,9 +20,9 @@ public class EFMovieRepository : IMovieRepository
         return m;
     }
 
-    public async Task<Movie> DeleteMovieAsync(string title)
+    public async Task<Movie> DeleteMovieAsync(int id)
     {
-        Movie? m = _dB.Movies.Where(movie => movie.Title == title).FirstOrDefault();
+        Movie? m = _dB.Movies.Where(movie => movie.Id == id).FirstOrDefault();
         if (m != null)
         {
             _dB.Movies.Remove(m);
@@ -38,6 +38,6 @@ public class EFMovieRepository : IMovieRepository
 
     public async Task<Movie?> FindMovieAsync(Movie m)
     {
-        return await _dB.Movies.FindAsync(m);
+        return await _dB.Movies.FindAsync(m.Id);
     }
 }

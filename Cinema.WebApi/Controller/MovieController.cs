@@ -4,23 +4,23 @@ using Microsoft.AspNetCore.Mvc;
 using Cinema.Core;
 
 [ApiController]
-[Route("salon")]
-public class SalonController : ControllerBase
+[Route("movie")]
+public class MovieController : ControllerBase
 {
-    private readonly SalonService _service;
-    public SalonController(SalonService salonService)
+    private readonly MovieService _service;
+    public MovieController(MovieService movieService)
     {
-        _service = salonService;
+        _service = movieService;
     }
 
     [HttpPost("")]
-    public async Task<IActionResult> PostSalon(Salon s)
+    public async Task<IActionResult> PostMovie(Movie m)
     {
-        if (await _service.AddSalonAsync(s) != null)
+        if (await _service.AddMovieAsync(m) != null)
         {
             try
             {
-                return Created("/salon", $"{s}");
+                return Created("/movie", $"{m}");
             }
             catch (Exception e)
             {
@@ -31,13 +31,13 @@ public class SalonController : ControllerBase
     }
 
     [HttpGet("")]
-    public async Task<IActionResult> GetAllSalonsAsync()
+    public async Task<IActionResult> GetAllMoviesAsync()
     {
-        if (await _service.GetAllSalonsAsync() != null)
+        if (await _service.GetAllMoviesAsync() != null)
         {
             try
             {
-                return Ok(await _service.GetAllSalonsAsync());
+                return Ok(await _service.GetAllMoviesAsync());
             }
             catch (Exception e)
             {
@@ -48,14 +48,12 @@ public class SalonController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public async Task<IActionResult> DeleteSalonAsync(int id)
+    public async Task<IActionResult> DeleteMovieAsync(int id)
     {
-        if (await _service.DeleteSalonAsync(id) != null)
+        if (await _service.DeleteMovieAsync(id) != null)
         {
             return Ok();
         }
         return BadRequest();
     }
-
 }
-

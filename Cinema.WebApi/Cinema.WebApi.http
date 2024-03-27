@@ -9,15 +9,43 @@ Post http://localhost:5204/salon
 Content-Type: application/json
 
 {
-  "Name": "Small",
-  "Nummber": 16,
-  "ChairQuantity": 50
+  "Name": "Lager",
+  "Nummber": 17,
+  "ChairQuantity": 100
 }
 
 ####
 
-DELETE http://localhost:5204/salon/12
+DELETE http://localhost:5204/salon/13
 Content-Type: application/json
 
 
+####___________________________________________________________________________________________________
+
+Get http://localhost:5204/movie
+
+
+####
+
+Post http://localhost:5204/movie
+Content-Type: application/json
+  
+{
+  "Title": "Jaco And The Dog",
+  "Description": "Good movie",
+  "Genre": "Action",
+  "AgeLimit": 21,
+  "Language": "English",
+  "UnderText": "Underlying text",
+  "Actors": ["Jakc", "Joe"],
+  "Direction": ["Davod"],
+  "ReleaseDate": "2023-05-15",
+  "Time": "12:30:00"
+}
+
+
+####
+
+DELETE http://localhost:5204/movie/8
+Content-Type: application/json
 
