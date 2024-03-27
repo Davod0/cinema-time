@@ -1,7 +1,6 @@
 
-
+#### Salon ______________________________________________________________________________________________
 Get http://localhost:5204/salon
-
 
 ####
 
@@ -9,21 +8,19 @@ Post http://localhost:5204/salon
 Content-Type: application/json
 
 {
-  "Name": "Lager",
-  "Nummber": 17,
-  "ChairQuantity": 100
+  "Name": "Small",
+  "Nummber": 19,
+  "ChairQuantity": 20
 }
 
 ####
 
-DELETE http://localhost:5204/salon/13
+DELETE http://localhost:5204/salon/17
 Content-Type: application/json
 
-
-####___________________________________________________________________________________________________
+#### Movie ___________________________________________________________________________________________________
 
 Get http://localhost:5204/movie
-
 
 ####
 
@@ -43,9 +40,30 @@ Content-Type: application/json
   "Time": "12:30:00"
 }
 
+####
+
+DELETE http://localhost:5204/movie/4
+Content-Type: application/json
+
+#### CinemaViewing ______________________________________________________________________________________________
+
+Get http://localhost:5204/CinemaViewing
 
 ####
 
-DELETE http://localhost:5204/movie/8
+Post http://localhost:5204/CinemaViewing
 Content-Type: application/json
+  
+{
+  "MovieId": 3,
+  "SalonId": 19,
+  "TimeAndDate": "2024-05-24T21:30:00",
+  "Price": 250,
+  "PlaceQuantity": 20,
+  "Premiere": "2024"
+}
 
+####
+
+DELETE http://localhost:5204/CinemaViewing/10
+Content-Type: application/json

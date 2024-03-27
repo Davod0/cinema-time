@@ -1,3 +1,6 @@
+
+API krav
+
 - [*] Lägga till nya filmer som skall kunna visas
 - [*] Ta bort filmer
 - [*] Hämta en lista på tillgängliga filmer (Detta är alltså inte samma som att visa schemat för visningar!)
@@ -5,14 +8,14 @@
 - [*] Lägga till nya salonger med ett visst antal platser
 - [*] Uppdatera och ta bort salongsinformation
 
-- [ ] Lägga till nya visningar
-- [ ] Hämta alla **kommande** visningar
+- [*] Lägga till nya visningar
+- [*] Hämta alla **kommande** visningar
 
 - [ ] Lista alla reservationer
 - [ ] Lista alla reservationer för en viss visning
 VG
 - [ ] Skapa en ny reservation
-- [ ] Det skall gå att lägga tillfälliga platsrestriktioner på en viss visning, utifall det blir nya pandemi-regler i framtiden
+- [*] Det skall gå att lägga tillfälliga platsrestriktioner på en viss visning, utifall det blir nya pandemi-regler i framtiden
 - [ ] Kräv autentisering för att kunna användas (Valfri metod)
 - [ ] "Checka in" en reservationskod och sätt den som använd (Kommer att användas vid betalning)
 
@@ -20,8 +23,25 @@ VG
 
 Regler för systemet:
 
-- [ ] En film får bara visas ett visst antal gånger. Det skall alltså inte gå att lägga till en film i schemat för visningar, om den redan visats max antal gånger. Detta värde sätts när en film läggs till i databasen första gången.
-- [ ] Det ska inte gå att lägga till en filmvisning i schemat samma tid som en annan film visas i samma salong
+- [*] En film får bara visas ett visst antal gånger. Det skall alltså inte gå att lägga till en film i schemat för visningar, om den redan visats max antal gånger. Detta värde sätts när en film läggs till i databasen första gången.
+- [*] Det ska inte gå att lägga till en filmvisning i schemat samma tid som en annan film visas i samma salong
 - [ ] Det skall inte gå att reservera platser på en visning om det inte finns tillräckligt många platser kvar
 VG
 - [ ] Reservationer som är äldre än ett år skall automatiskt tas bort ur databasen.
+
+
+
+
+Hemsidan krav
+
+
+- [ ] Se schemat för kommande filmvisningar
+- [ ] Få grundläggande information om filmerna som ska visas
+- [ ] Reservera platser på filmvisning
+VG
+- [ ] Visa det totala priset innan reservationen läggs (se bild)
+- [ ] Det skall gå att avboka en reservation på valfritt sätt
+- [ ] Använd ett externt api till något på hemsidan, exempelvis ett random advice från https://api.adviceslip.com/, eller mer avancerat: https://developers.themoviedb.org/3/getting-started/introduction
+- [ ] Reviews! Det skall gå att poängsätta filmer samt ge dem ett skriftligt omdöme genom att ange sin reservationskod, men bara efter att filmen visats.
+
+

@@ -1,9 +1,6 @@
 namespace Cinema.MinimalWebApi;
 using Cinema.Infrastructure;
 using Cinema.Core;
-using Microsoft.EntityFrameworkCore;
-using Swashbuckle;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 internal class Program
 {
@@ -33,13 +30,11 @@ internal class Program
         });
         app.MapDelete("/minimalApi/deleteMovie", async (IMovieRepository _repo, int id) =>
         {
-
             if (await _repo.DeleteMovieAsync(id) != null)
             {
                 return Results.Ok();
             }
             return Results.BadRequest(); ;
-
         });
 
         app.Run();

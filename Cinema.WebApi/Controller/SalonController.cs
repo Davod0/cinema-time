@@ -14,7 +14,7 @@ public class SalonController : ControllerBase
     }
 
     [HttpPost("")]
-    public async Task<IActionResult> PostSalon(Salon s)
+    public async Task<IActionResult> PostSalonAsync(Salon s)
     {
         if (await _service.AddSalonAsync(s) != null)
         {
