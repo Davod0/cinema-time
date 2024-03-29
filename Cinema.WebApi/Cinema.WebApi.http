@@ -50,7 +50,9 @@ Content-Type: application/json
 Get http://localhost:5204/CinemaViewing
 
 ####
+GET http://localhost:5204/CinemaViewing/uppcoming
 
+####
 Post http://localhost:5204/CinemaViewing
 Content-Type: application/json
   
@@ -65,9 +67,8 @@ Content-Type: application/json
 
 ####
 
-DELETE http://localhost:5204/CinemaViewing/15
+DELETE http://localhost:5204/CinemaViewing/16
 Content-Type: application/json
-
 
 ####  Reservation ______________________________________________________________________________________________
 

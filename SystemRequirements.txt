@@ -10,9 +10,12 @@ API krav
 
 - [*] Lägga till nya visningar
 - [*] Hämta alla **kommande** visningar
+- [*] Hämta alla visningarm _____________________________Extra
+
 
 - [*] Lista alla reservationer
 - [*] Lista alla reservationer för en viss visning
+- [*] Radera reseravtioner____________________________________Extra
 VG
 - [*] Skapa en ny reservation
 - [*] Det skall gå att lägga tillfälliga platsrestriktioner på en viss visning, utifall det blir nya pandemi-regler i framtiden
@@ -25,7 +28,7 @@ Regler för systemet:
 
 - [*] En film får bara visas ett visst antal gånger. Det skall alltså inte gå att lägga till en film i schemat för visningar, om den redan visats max antal gånger. Detta värde sätts när en film läggs till i databasen första gången.
 - [*] Det ska inte gå att lägga till en filmvisning i schemat samma tid som en annan film visas i samma salong
-- [ ] Det skall inte gå att reservera platser på en visning om det inte finns tillräckligt många platser kvar
+- [*] Det skall inte gå att reservera platser på en visning om det inte finns tillräckligt många platser kvar
 VG
 - [ ] Reservationer som är äldre än ett år skall automatiskt tas bort ur databasen.
 

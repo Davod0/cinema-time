@@ -106,6 +106,5 @@ public class ReservationController : ControllerBase
         return BadRequest("Reservation Id can not be null");
     }
 
-
 }
 

@@ -17,14 +17,7 @@ public class CinemaViewingController : ControllerBase
     {
         if (await _service.AddCinemaViewingAsync(cv) != null)
         {
-            try
-            {
-                return Created("/movie", $"{cv}");
-            }
-            catch (Exception e)
-            {
-                return StatusCode(500);
-            }
+            return Created("/movie", $"{cv}");
         }
         return BadRequest();
     }
@@ -32,27 +25,34 @@ public class CinemaViewingController : ControllerBase
     [HttpGet("")]
     public async Task<IActionResult> GetAllCinemaViewingsAsync()
     {
-        if (await _service.GetAllCinemaViewingsAsync() != null)
+        var cinemaViewings = await _service.GetAllCinemaViewingsAsync();
+        if (cinemaViewings != null)
         {
-            try
-            {
-                return Ok(await _service.GetAllCinemaViewingsAsync());
-            }
-            catch (Exception e)
-            {
-                return StatusCode(500);
-            }
+            return Ok(cinemaViewings);
         }
-        return BadRequest();
+        return StatusCode(500);
     }
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteCinemaViewingAsync(int id)
     {
-        if (await _service.DeleteCinemaViewingAsync(id) != null)
+        var deletedCv = await _service.DeleteCinemaViewingAsync(id);
+        if (deletedCv != null)
         {
-            return Ok();
+            return Ok(deletedCv);
         }
-        return BadRequest();
+        return StatusCode(500);
+    }
+
+    [HttpGet("uppcoming")]
+    public async Task<IActionResult> GetAllUpcomingCinemaViewingsAsync()
+    {
+        List<CinemaViewing> upcomingCinemaViewings = await _service.GetAllUpcomingCinemaViewingsAsync();
+
+        if (upcomingCinemaViewings != null)
+        {
+            return Ok(upcomingCinemaViewings);
+        }
+        return NotFound();
     }
 }
