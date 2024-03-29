@@ -12,17 +12,26 @@ public class Reservation
 
 /*
 
+Implementera endpoint för reservation 
+interface
+EFrepository klass
+Service klass
+
 API
-- [ ] Lista alla reservationer
-- [ ] Lista alla reservationer för en viss visning
+- [*] Lista alla reservationer
+- [*] Lista alla reservationer för en viss visning
 VG
-- [ ] Skapa en ny reservation
-- [ ] "Checka in" en reservationskod och sätt den som använd (Kommer att användas vid betalning)
+- [*] Skapa en ny reservation
 
 
 system regler 
 
-    - [ ] Det skall inte gå att reservera platser på en visning om det inte finns tillräckligt många platser kvar
+    - [*] Det skall inte gå att reservera platser på en visning om det inte finns tillräckligt många platser kvar 
     VG
-    - [ ] Reservationer som är äldre än ett år skall automatiskt tas bort ur databasen.
+
+_________________________________________________________
+ min extra funkationer 
+- [*] Radera reseravtioner 
+
+
 */

@@ -17,6 +17,8 @@ internal class Program
         builder.Services.AddScoped<IMovieRepository, EFMovieRepository>();
         builder.Services.AddScoped<CinemaViewingService>();
         builder.Services.AddScoped<ICinemaViewingRepository, EFCinemaViewingRepository>();
+        builder.Services.AddScoped<ReservationService>();
+        builder.Services.AddScoped<IReservationRepository, EFReservationRepository>();
         builder.Services.AddControllers();
         var app = builder.Build();
         if (app.Environment.IsDevelopment())

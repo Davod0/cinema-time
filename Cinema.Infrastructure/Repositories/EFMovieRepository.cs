@@ -27,13 +27,14 @@ public class EFMovieRepository : IMovieRepository
         {
             _dB.Movies.Remove(m);
             await _dB.SaveChangesAsync();
+            return m;
         }
-        return m;
+        return null;
     }
 
-    public Task<List<Movie>> GetAllMoviesAsync()
+    public async Task<List<Movie>> GetAllMoviesAsync()
     {
-        return _dB.Movies.ToListAsync();
+        return await _dB.Movies.ToListAsync();
     }
 
     public async Task<Movie?> FindMovieAsync(Movie m)

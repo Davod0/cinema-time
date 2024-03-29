@@ -23,8 +23,9 @@ public class EFCinemaViewingRepository : ICinemaViewingRepository
         {
             _dB.CinemaViewings.Remove(cv);
             await _dB.SaveChangesAsync();
+            return cv;
         }
-        return cv;
+        return null;
     }
 
     public async Task<List<CinemaViewing>> GetAllCinemaViewingsAsync()

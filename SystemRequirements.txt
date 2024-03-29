@@ -11,10 +11,10 @@ API krav
 - [*] Lägga till nya visningar
 - [*] Hämta alla **kommande** visningar
 
-- [ ] Lista alla reservationer
-- [ ] Lista alla reservationer för en viss visning
+- [*] Lista alla reservationer
+- [*] Lista alla reservationer för en viss visning
 VG
-- [ ] Skapa en ny reservation
+- [*] Skapa en ny reservation
 - [*] Det skall gå att lägga tillfälliga platsrestriktioner på en viss visning, utifall det blir nya pandemi-regler i framtiden
 - [ ] Kräv autentisering för att kunna användas (Valfri metod)
 - [ ] "Checka in" en reservationskod och sätt den som använd (Kommer att användas vid betalning)

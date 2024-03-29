@@ -12,14 +12,10 @@ public class MovieService
     {
         if (m != null && m.Title.Length >= 2)
         {
-            await _iMovieRepo.AddMovieAsync(m);
-            if (await _iMovieRepo.FindMovieAsync(m) != null)
+            var addedM = await _iMovieRepo.AddMovieAsync(m);
+            if (addedM != null)
             {
                 return m;
-            }
-            else
-            {
-                return null;
             }
         }
         return null;

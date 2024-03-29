@@ -9,13 +9,13 @@ Content-Type: application/json
 
 {
   "Name": "Small",
-  "Nummber": 19,
-  "ChairQuantity": 20
+  "Nummber": 22,
+  "ChairQuantity": 30
 }
 
 ####
 
-DELETE http://localhost:5204/salon/17
+DELETE http://localhost:5204/salon/24
 Content-Type: application/json
 
 #### Movie ___________________________________________________________________________________________________
@@ -28,21 +28,21 @@ Post http://localhost:5204/movie
 Content-Type: application/json
   
 {
-  "Title": "Jaco And The Dog",
-  "Description": "Good movie",
+  "Title": "Stars War",
+  "Description": "War between Humans and Aliens",
   "Genre": "Action",
-  "AgeLimit": 21,
+  "AgeLimit": 15,
   "Language": "English",
   "UnderText": "Underlying text",
-  "Actors": ["Jakc", "Joe"],
-  "Direction": ["Davod"],
-  "ReleaseDate": "2023-05-15",
-  "Time": "12:30:00"
+  "Actors": ["Jack Jones", "Sara Tailer"],
+  "Direction": ["Steven Spielberg"],
+  "ReleaseDate": "2021-05-15",
+  "Time": "02:30:00"
 }
 
 ####
 
-DELETE http://localhost:5204/movie/4
+DELETE http://localhost:5204/movie/17
 Content-Type: application/json
 
 #### CinemaViewing ______________________________________________________________________________________________
@@ -55,15 +55,39 @@ Post http://localhost:5204/CinemaViewing
 Content-Type: application/json
   
 {
-  "MovieId": 3,
-  "SalonId": 19,
-  "TimeAndDate": "2024-05-24T21:30:00",
+  "MovieId": 16,
+  "SalonId": 22,
+  "TimeAndDate": "2024-05-25T21:30:00",
   "Price": 250,
-  "PlaceQuantity": 20,
+  "PlaceQuantity": 30,
   "Premiere": "2024"
 }
 
 ####
 
-DELETE http://localhost:5204/CinemaViewing/10
+DELETE http://localhost:5204/CinemaViewing/15
 Content-Type: application/json
+
+
+####  Reservation ______________________________________________________________________________________________
+
+Get http://localhost:5204/reservation
+
+####
+
+Post http://localhost:5204/reservation
+Content-Type: application/json
+  
+{
+  "CinemaViewingId": 12,
+  "Quantity": 50,
+  "ReservationCode": "",
+  "Email": "jack.gmail.com"
+}
+
+#### 
+# Här hämtas alla reservationer som tillhör en CinemaViewing
+GET http://localhost:5204/reservation/CinemaViewing/12
+
+####
+DELETE http://localhost:5204/reservation/38

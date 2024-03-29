@@ -1,0 +1,11 @@
+
+
+
+Reservation class 
+bool CheckIfReservationCodeIsUsed = false;
+DateTime TimeWhenReservationIsMade = dateTime.Now;
+
+ReservationService class 
+En metod som sätter Reservatione.CheckIfReservationCodeIsUsed till true
+En metod som hämtar alla Reservations och checkar Reseravtion.TimeWhenReservationIsMade och tar bort alla resrevations som är äldre ur databasen
+

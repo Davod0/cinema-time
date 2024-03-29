@@ -22,10 +22,6 @@ public class CinemaViewingService
                 {
                     return cv;
                 }
-                else
-                {
-                    return null;
-                }
             }
         }
         return null;
