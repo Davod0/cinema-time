@@ -1,0 +1,34 @@
+@page "/CinemaViewing"
+@rendermode InteractiveServer
+@using Cinema.Blazor.Components
+@using Cinema.Infrastructure
+@using Cinema.Core
+@inject NavigationManager navigationManager
+@inject CinemaViewingService _service
+
+<PageTitle>CinemaViewing</PageTitle>
+
+<h1>CinemaViewing</h1>
+
+
+
+@foreach (CinemaViewing item in  CinemaViewngsList)
+{
+     <div>
+        <p>CinemaViewing ID: @item.Id</p>
+        <p>Movie Id: @item.MovieId</p>
+        <p>Start Time: @item.TimeAndDate</p>
+    </div>
+}
+
+@code
+{
+    List<CinemaViewing> CinemaViewngsList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        CinemaViewngsList = await _service.GetAllCinemaViewingsAsync();
+    }
+}
+
+
