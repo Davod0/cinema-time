@@ -2,6 +2,7 @@ namespace Cinema.WebApi;
 
 using Cinema.Core;
 using Cinema.Infrastructure;
+
 internal class Program
 {
     private static void Main(string[] args)

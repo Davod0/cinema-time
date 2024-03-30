@@ -1,0 +1,13 @@
+
+-Metoden DeleteReservationOlderThanOneYear() som raderar alla reservationer som är äldre än ett år finns i klassen 
+ReservationService och anropas i metoden AddReservationAsync(Reservation r)
+
+-I klassen ReservationService och metoden DeleteReservationAsync(int id) och metoden AddReservationAsync(Reservation r)
+försöker jag kasta några exception som sedan fångas upp i ReservationController klassen och beronde på vad det är för exception
+skickas status kod tillbaka till user webläsaren och man kan även bestäma sig där vilken sort av exception man 
+vill skcika till user och vilka ska skickas till admin page.
+
+
+-I klassen CinemaViewingService i metoden AddCinemaViewingAsync(CinemaViewing cv) kontrolleras om 
+en att En film får bara visas ett visst antal gånger och en film ska inte gå att lägga till en filmvisning i schemat
+samma tid som en annan film visas i samma salong.

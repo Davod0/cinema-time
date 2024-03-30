@@ -13,6 +13,7 @@ public class ReservationService
 
     public async Task<Reservation> AddReservationAsync(Reservation r)
     {
+        DeleteReservationOlderThanOneYear();
         if (r != null)
         {
             List<Reservation> listOfReservationsForSpecifiedCinemaV = await _repo.GetReservationsForCinemaViewingAsync(r.CinemaViewingId);
@@ -49,9 +50,10 @@ public class ReservationService
 
     public async Task<List<Reservation>> GetReservationsForCinemaViewingAsync(int cinemaViewingId)
     {
-        if (await _repo.GetReservationsForCinemaViewingAsync(cinemaViewingId) != null)
+        List<Reservation> list = await _repo.GetReservationsForCinemaViewingAsync(cinemaViewingId);
+        if (list != null)
         {
-            return await _repo.GetReservationsForCinemaViewingAsync(cinemaViewingId);
+            return list;
         }
         return null;
     }
@@ -76,5 +78,20 @@ public class ReservationService
     public void GenerateReservationCode(Reservation r)
     {
         r.ReservationCode = Guid.NewGuid().ToString();
+    }
+
+    public async void DeleteReservationOlderThanOneYear()
+    {
+        List<CinemaViewing> cvList = await _cvRepo.GetAllCinemaViewingsAsync();
+        var oldCinemaViews = cvList.Where(cv => cv.TimeAndDate < DateTime.Now.AddYears(-1));
+
+        foreach (CinemaViewing cv in oldCinemaViews)
+        {
+            List<Reservation> oldReservations = await _repo.GetReservationsForCinemaViewingAsync(cv.Id);
+            foreach (Reservation res in oldReservations)
+            {
+                await _repo.DeleteReservationAsync(res.Id);
+            }
+        }
     }
 }

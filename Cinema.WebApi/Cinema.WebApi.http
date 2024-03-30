@@ -57,17 +57,17 @@ Post http://localhost:5204/CinemaViewing
 Content-Type: application/json
   
 {
-  "MovieId": 16,
+  "MovieId": 15,
   "SalonId": 22,
-  "TimeAndDate": "2024-05-25T21:30:00",
+  "TimeAndDate": "2021-01-10T21:20:00",
   "Price": 250,
-  "PlaceQuantity": 30,
+  "PlaceQuantity": 10,
   "Premiere": "2024"
 }
 
 ####
 
-DELETE http://localhost:5204/CinemaViewing/16
+DELETE http://localhost:5204/CinemaViewing/20
 Content-Type: application/json
 
 ####  Reservation ______________________________________________________________________________________________
@@ -80,15 +80,15 @@ Post http://localhost:5204/reservation
 Content-Type: application/json
   
 {
-  "CinemaViewingId": 12,
-  "Quantity": 50,
+  "CinemaViewingId": 14,
+  "Quantity": 3,
   "ReservationCode": "",
   "Email": "jack.gmail.com"
 }
 
 #### 
 # Här hämtas alla reservationer som tillhör en CinemaViewing
-GET http://localhost:5204/reservation/CinemaViewing/12
+GET http://localhost:5204/reservation/CinemaViewing/19
 
 ####
-DELETE http://localhost:5204/reservation/38
+DELETE http://localhost:5204/reservation/37
