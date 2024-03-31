@@ -1,0 +1,24 @@
+
+Reservation class 
+bool UsedRservationCode = false;
+
+ReservationService class 
+En metod som sätter Reservatione.CheckIfReservationCodeIsUsed till true
+
+
+Return ardalis.Result
+kasta olika exception genom att returnera Result objekt
+
+_________________________________________________________________________________________
+
+Lägg till ImageUrl egenskapen i Movie klass och det kan vara null?
+Lägg tlll UsedRservationCode egenskapen i Klaasen Reservation
+Tabort migration och databasen uppdatera databasen
+
+imlpementera metoden GetMovieById(int id) i MovieService
+
+imlpementera metoden GetReservationById(int id) i ReservationService
+
+
+imlpementera apiet i ReservationService klassen för att ge ett advice varje gång en reservation är gjort
+GET https://api.adviceslip.com/advice
