@@ -63,9 +63,9 @@ Content-Type: application/json
 {
   "MovieId": 15,
   "SalonId": 22,
-  "TimeAndDate": "2021-01-10T21:20:00",
-  "Price": 250,
-  "PlaceQuantity": 10,
+  "TimeAndDate": "2024-10-10T21:20:00",
+  "Price": 150,
+  "PlaceQuantity": 30,
   "Premiere": "2024"
 }
 
@@ -93,10 +93,9 @@ Post http://localhost:5204/reservation
 Content-Type: application/json
   
 {
-  "CinemaViewingId": 14,
-  "Quantity": 3,
-  "ReservationCode": "",
-  "Email": "jack.gmail.com"
+  "CinemaViewingId": 22,
+  "Quantity": 5,
+  "Email": "Emma@gmail.com"
 }
 
 #### 

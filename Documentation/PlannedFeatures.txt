@@ -12,7 +12,6 @@ kasta olika exception genom att returnera Result objekt
 _________________________________________________________________________________________
 
 
-- [ ] "Checka in" en reservationskod och sätt den som använd
 
 imlpementera apiet i ReservationService klassen för att ge ett advice varje gång en reservation är gjort
 GET https://api.adviceslip.com/advice
