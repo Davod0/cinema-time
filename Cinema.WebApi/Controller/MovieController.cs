@@ -56,4 +56,15 @@ public class MovieController : ControllerBase
         }
         return BadRequest();
     }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetMovieById(int id)
+    {
+        Movie m = await _service.GetMovieById(id);
+        if (m != null)
+        {
+            return Ok(m);
+        }
+        return BadRequest();
+    }
 }

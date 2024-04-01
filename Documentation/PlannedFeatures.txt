@@ -12,10 +12,9 @@ kasta olika exception genom att returnera Result objekt
 _________________________________________________________________________________________
 
 
-
-imlpementera metoden GetMovieById(int id) i MovieService
-
 imlpementera metoden GetReservationById(int id) i ReservationService
+
+- [ ] "Checka in" en reservationskod och sätt den som använd (Kommer att användas vid betalning)
 
 
 imlpementera apiet i ReservationService klassen för att ge ett advice varje gång en reservation är gjort

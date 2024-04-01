@@ -4,6 +4,7 @@ API krav
 - [*] Lägga till nya filmer som skall kunna visas
 - [*] Ta bort filmer
 - [*] Hämta en lista på tillgängliga filmer 
+- [*] Hämta en film med Id_____________________________________Extra
 
 - [*] Lägga till nya salonger med ett visst antal platser
 - [*] Uppdatera och ta bort salongsinformation

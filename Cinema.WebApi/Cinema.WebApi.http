@@ -24,6 +24,10 @@ Get http://localhost:5204/movie
 
 ####
 
+Get http://localhost:5204/movie/16
+
+####
+
 Post http://localhost:5204/movie
 Content-Type: application/json
   
