@@ -133,6 +133,23 @@ public class ReservationController : ControllerBase
         return BadRequest();
     }
 
+    [HttpGet("updateReservationCodeStatus/{id}")]
+    public async Task<IActionResult> SetReservationCodeToUsedAsync(int id)
+    {
+        try
+        {
+            bool result = await _service.SetReservationCodeToUsedAsync(id);
+            if (result == true)
+            {
+                return Ok();
+            }
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+        return BadRequest();
+    }
 }
 
 

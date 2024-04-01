@@ -82,6 +82,11 @@ Get http://localhost:5204/reservation
 
 GET http://localhost:5204/reservation/59
 
+
+####
+
+GET http://localhost:5204/reservation/updateReservationCodeStatus/59
+
 ####
 
 Post http://localhost:5204/reservation
@@ -100,6 +105,8 @@ GET http://localhost:5204/reservation/CinemaViewing/19
 
 ####
 DELETE http://localhost:5204/reservation/37
+
+
 
 
 

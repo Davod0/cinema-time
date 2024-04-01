@@ -21,7 +21,7 @@ VG
 - [*] Skapa en ny reservation
 - [*] Det skall gå att lägga tillfälliga platsrestriktioner på en viss visning, utifall det blir nya pandemi-regler i framtiden
 - [ ] Kräv autentisering för att kunna användas (Valfri metod)
-- [ ] "Checka in" en reservationskod och sätt den som använd (Kommer att användas vid betalning)
+- [*] "Checka in" en reservationskod och sätt den som använd (Kommer att användas vid betalning)
 
 
 Regler för systemet:
