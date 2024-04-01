@@ -60,7 +60,7 @@ public class MovieController : ControllerBase
     [HttpGet("{id}")]
     public async Task<IActionResult> GetMovieById(int id)
     {
-        Movie m = await _service.GetMovieById(id);
+        Movie m = await _service.GetMovieByIdAsync(id);
         if (m != null)
         {
             return Ok(m);

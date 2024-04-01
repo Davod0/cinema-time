@@ -13,12 +13,14 @@
 
 @foreach (CinemaViewing item in CinemaViewngsList)
 {
-    var movie = GetMovieByIdAsync(item.MovieId);
+    @* var movie = await GetMovieByIdAsync(item.MovieId); *@
+    
     <nav class="navbar navbar-light bg-light mb-3"> <!-- Lägg till mb-3 för att lägga till lite utrymme mellan varje navigation -->
         <a class="navbar-brand" href="/BLCinemaViewingDetails">
-            <img src="@movie.ImageUrl" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="@item.Movie.ImageUrl" width="30" height="30" class="d-inline-block align-top" alt="">
             <div class="d-flex flex-column"> <!-- Lägg till en flexbox för att ordna elementen i kolumner -->
-                <span>Film namn: @movie.Title</span>
+                <span>Film namn: @item.Movie.Title</span>
+                <!-- <span>Film namn: @movie.Title</span> -->
                 <span class="mt-1">Pris: @item.Price</span>
                 <span class="mt-1">Platser kvar: @item.PlaceQuantity</span>
             </div>
@@ -32,15 +34,15 @@
 @code
 {
     List<CinemaViewing> CinemaViewngsList;
+
+    
     protected override async Task OnInitializedAsync()
     {
         CinemaViewngsList = await _cVservice.GetAllUpcomingCinemaViewingsAsync();
+
+        List<Movie> movies = await _movieService.GetAllMoviesAsync();
     }
 
-    public async Task<Movie> GetMovieByIdAsync(int movieId)
-    {
-        return _movieService.GetMovieByIdAsync(movieId);
-    }
 
 
 }
@@ -71,3 +73,5 @@ https://getbootstrap.com/docs/4.0/utilities/embed/
     "usedRservationCode": true
   }
 ] *@
+
+

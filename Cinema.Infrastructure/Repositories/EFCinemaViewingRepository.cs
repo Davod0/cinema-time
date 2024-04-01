@@ -30,6 +30,6 @@ public class EFCinemaViewingRepository : ICinemaViewingRepository
 
     public async Task<List<CinemaViewing>> GetAllCinemaViewingsAsync()
     {
-        return await _dB.CinemaViewings.ToListAsync();
+        return await _dB.CinemaViewings.Include(cv => cv.Movie).ToListAsync();
     }
 }

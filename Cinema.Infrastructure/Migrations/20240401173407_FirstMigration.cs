@@ -12,24 +12,6 @@ namespace Cinema.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CinemaViewings",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    MovieId = table.Column<int>(type: "INTEGER", nullable: false),
-                    SalonId = table.Column<int>(type: "INTEGER", nullable: false),
-                    TimeAndDate = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Price = table.Column<int>(type: "INTEGER", nullable: false),
-                    PlaceQuantity = table.Column<int>(type: "INTEGER", nullable: false),
-                    Premiere = table.Column<string>(type: "TEXT", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CinemaViewings", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Movies",
                 columns: table => new
                 {
@@ -44,7 +26,8 @@ namespace Cinema.Infrastructure.Migrations
                     Actors = table.Column<string>(type: "TEXT", nullable: false),
                     Direction = table.Column<string>(type: "TEXT", nullable: false),
                     ReleaseDate = table.Column<DateOnly>(type: "TEXT", nullable: false),
-                    Time = table.Column<TimeOnly>(type: "TEXT", nullable: false)
+                    Time = table.Column<TimeOnly>(type: "TEXT", nullable: false),
+                    ImageUrl = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -59,8 +42,9 @@ namespace Cinema.Infrastructure.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     CinemaViewingId = table.Column<int>(type: "INTEGER", nullable: false),
                     Quantity = table.Column<int>(type: "INTEGER", nullable: false),
-                    ReservationCode = table.Column<string>(type: "TEXT", nullable: false),
-                    Email = table.Column<string>(type: "TEXT", nullable: false)
+                    ReservationCode = table.Column<string>(type: "TEXT", nullable: true),
+                    Email = table.Column<string>(type: "TEXT", nullable: false),
+                    UsedRservationCode = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -81,6 +65,35 @@ namespace Cinema.Infrastructure.Migrations
                 {
                     table.PrimaryKey("PK_Salons", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "CinemaViewings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    MovieId = table.Column<int>(type: "INTEGER", nullable: false),
+                    SalonId = table.Column<int>(type: "INTEGER", nullable: false),
+                    TimeAndDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Price = table.Column<int>(type: "INTEGER", nullable: false),
+                    PlaceQuantity = table.Column<int>(type: "INTEGER", nullable: false),
+                    Premiere = table.Column<string>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CinemaViewings", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_CinemaViewings_Movies_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "Movies",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CinemaViewings_MovieId",
+                table: "CinemaViewings",
+                column: "MovieId");
         }
 
         /// <inheritdoc />
@@ -90,13 +103,13 @@ namespace Cinema.Infrastructure.Migrations
                 name: "CinemaViewings");
 
             migrationBuilder.DropTable(
-                name: "Movies");
-
-            migrationBuilder.DropTable(
                 name: "Reservations");
 
             migrationBuilder.DropTable(
                 name: "Salons");
+
+            migrationBuilder.DropTable(
+                name: "Movies");
         }
     }
 }

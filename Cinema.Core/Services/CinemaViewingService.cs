@@ -3,9 +3,11 @@ namespace Cinema.Core;
 public class CinemaViewingService
 {
     private readonly ICinemaViewingRepository _repo;
-    public CinemaViewingService(ICinemaViewingRepository cinemaViewingRepository)
+    private readonly MovieService _movieService;
+    public CinemaViewingService(ICinemaViewingRepository cinemaViewingRepository, MovieService movieService)
     {
         _repo = cinemaViewingRepository;
+        _movieService = movieService;
     }
 
     public async Task<CinemaViewing> AddCinemaViewingAsync(CinemaViewing cv)
@@ -18,6 +20,8 @@ public class CinemaViewingService
 
             if (isUniqueTimeAndDate && numberOfCinemaViewingsWithSameMovieId <= 2)
             {
+                Movie movie = await _movieService.GetMovieByIdAsync(cv.MovieId);
+                cv.Movie = movie;
                 if (await _repo.AddCinemaViewingAsync(cv) != null)
                 {
                     return cv;

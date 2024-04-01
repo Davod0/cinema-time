@@ -44,6 +44,8 @@ namespace Cinema.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("MovieId");
+
                     b.ToTable("CinemaViewings");
                 });
 
@@ -144,6 +146,17 @@ namespace Cinema.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Salons");
+                });
+
+            modelBuilder.Entity("Cinema.Core.CinemaViewing", b =>
+                {
+                    b.HasOne("Cinema.Core.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
                 });
 #pragma warning restore 612, 618
         }

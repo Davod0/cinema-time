@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Cinema.Infrastructure.Migrations
 {
     [DbContext(typeof(CinemaDbContext))]
-    [Migration("20240401115458_SecondMidgration")]
-    partial class SecondMidgration
+    [Migration("20240401173407_FirstMigration")]
+    partial class FirstMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -46,6 +46,8 @@ namespace Cinema.Infrastructure.Migrations
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("MovieId");
 
                     b.ToTable("CinemaViewings");
                 });
@@ -118,10 +120,9 @@ namespace Cinema.Infrastructure.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("ReservationCode")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<bool?>("UsedRservationCode")
+                    b.Property<bool>("UsedRservationCode")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
@@ -148,6 +149,17 @@ namespace Cinema.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Salons");
+                });
+
+            modelBuilder.Entity("Cinema.Core.CinemaViewing", b =>
+                {
+                    b.HasOne("Cinema.Core.Movie", "Movie")
+                        .WithMany()
+                        .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Movie");
                 });
 #pragma warning restore 612, 618
         }

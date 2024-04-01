@@ -8,9 +8,9 @@ Post http://localhost:5204/salon
 Content-Type: application/json
 
 {
-  "Name": "Small",
-  "Nummber": 22,
-  "ChairQuantity": 30
+  "Name": "Large",
+  "Nummber": 1,
+  "ChairQuantity": 50
 }
 
 ####
@@ -62,11 +62,11 @@ Post http://localhost:5204/CinemaViewing
 Content-Type: application/json
   
 {
-  "MovieId": 19,
-  "SalonId": 22,
+  "MovieId": 1,
+  "SalonId": 1,
   "TimeAndDate": "2024-05-10T21:20:00",
   "Price": 250,
-  "PlaceQuantity": 30,
+  "PlaceQuantity": 50,
   "Premiere": "2024"
 }
 
