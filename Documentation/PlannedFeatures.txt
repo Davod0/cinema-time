@@ -22,3 +22,7 @@ imlpementera metoden GetReservationById(int id) i ReservationService
 
 imlpementera apiet i ReservationService klassen för att ge ett advice varje gång en reservation är gjort
 GET https://api.adviceslip.com/advice
+
+
+länk till en bild 
+https://images2.fanpop.com/images/photos/8400000/Movie-Posters-movies-8405245-1224-1773.jpg

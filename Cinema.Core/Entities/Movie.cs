@@ -16,4 +16,5 @@ public class Movie
     public List<string> Direction { get; set; }
     public DateOnly ReleaseDate { get; set; }
     public TimeOnly Time { get; set; }
+    public string? ImageUrl { get; set; }
 }
