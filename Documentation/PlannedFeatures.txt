@@ -12,7 +12,7 @@ kasta olika exception genom att returnera Result objekt
 _________________________________________________________________________________________
 
 
-imlpementera metoden GetReservationById(int id) i ReservationService
+imlpementera metoden updateCinemaviewingPlaceQuantity
 
 - [ ] "Checka in" en reservationskod och sätt den som använd (Kommer att användas vid betalning)
 

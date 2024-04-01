@@ -80,6 +80,10 @@ Get http://localhost:5204/reservation
 
 ####
 
+GET http://localhost:5204/reservation/59
+
+####
+
 Post http://localhost:5204/reservation
 Content-Type: application/json
   
@@ -98,5 +102,4 @@ GET http://localhost:5204/reservation/CinemaViewing/19
 DELETE http://localhost:5204/reservation/37
 
 
-####
 

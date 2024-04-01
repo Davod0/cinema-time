@@ -106,5 +106,34 @@ public class ReservationController : ControllerBase
         return BadRequest("Reservation Id can not be null");
     }
 
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetReservationById(int id)
+    {
+        try
+        {
+            Reservation r = await _service.GetReservationById(id);
+            if (r != null)
+            {
+                return Ok(r);
+            }
+        }
+        catch (KeyNotFoundException ex)
+        {
+            return NotFound(ex.Message);
+        }
+        catch (ArgumentNullException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            // Denna Exception kan användas för att logga den till en admin page
+            return StatusCode(500, ex.Message);
+        }
+        return BadRequest();
+    }
+
 }
+
+
 
