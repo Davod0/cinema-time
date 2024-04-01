@@ -48,4 +48,16 @@ public class EFReservationRepository : IReservationRepository
     {
         return await _dB.Reservations.FindAsync(id);
     }
+
+    public async Task<bool> SetReservationCodeToUsedAsync(int reservationId)
+    {
+        Reservation? r = await _dB.Reservations.FindAsync(reservationId);
+        if (r != null)
+        {
+            r.UsedRservationCode = true;
+            await _dB.SaveChangesAsync();
+            return true;
+        }
+        return false;
+    }
 }

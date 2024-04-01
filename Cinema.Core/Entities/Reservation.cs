@@ -7,7 +7,7 @@ public class Reservation
     public int Quantity { get; set; }
     public string ReservationCode { get; set; }
     public string Email { get; set; }
-    public bool? UsedRservationCode { get; set; } = false;
+    public bool UsedRservationCode { get; set; } = false;
 }
 
 
