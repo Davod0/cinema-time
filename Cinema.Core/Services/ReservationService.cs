@@ -26,6 +26,7 @@ public class ReservationService
             {
                 if (r.Quantity <= (cinemaViewing.PlaceQuantity - totalReservedPlaces))
                 {
+                    cinemaViewing.PlaceQuantity -= r.Quantity;
                     return await _repo.AddReservationAsync(r);
                 }
                 else
@@ -103,5 +104,10 @@ public class ReservationService
             return r;
         }
         throw new KeyNotFoundException("Reservation with the specified ID was not found");
+    }
+
+    public async Task<bool> SetReservationCodeToUsedAsync(int reservationId)
+    {
+        return await _repo.SetReservationCodeToUsedAsync(reservationId);
     }
 }

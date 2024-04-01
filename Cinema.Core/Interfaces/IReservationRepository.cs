@@ -7,4 +7,5 @@ public interface IReservationRepository
     public Task<List<Reservation>> GetReservationsForCinemaViewingAsync(int cinemaViewingId);
     public Task<Reservation> DeleteReservationAsync(int id);
     public Task<Reservation> GetReservationById(int id);
+    public Task<bool> SetReservationCodeToUsedAsync(int reservationId);
 }
