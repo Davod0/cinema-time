@@ -13,12 +13,12 @@
 
 @foreach (CinemaViewing item in CinemaViewngsList)
 {
-    var movie = await _MovieService.GetMovieById(item.MovieId);
+    var movie = GetMovieByIdAsync(item.MovieId);
     <nav class="navbar navbar-light bg-light mb-3"> <!-- Lägg till mb-3 för att lägga till lite utrymme mellan varje navigation -->
         <a class="navbar-brand" href="/BLCinemaViewingDetails">
-            <img src="https://images2.fanpop.com/images/photos/8400000/Movie-Posters-movies-8405245-1224-1773.jpg" width="30" height="30" class="d-inline-block align-top" alt="">
+            <img src="@movie.ImageUrl" width="30" height="30" class="d-inline-block align-top" alt="">
             <div class="d-flex flex-column"> <!-- Lägg till en flexbox för att ordna elementen i kolumner -->
-                <span>Film namn: @movie.Name</span>
+                <span>Film namn: @movie.Title</span>
                 <span class="mt-1">Pris: @item.Price</span>
                 <span class="mt-1">Platser kvar: @item.PlaceQuantity</span>
             </div>
@@ -36,6 +36,13 @@
     {
         CinemaViewngsList = await _cVservice.GetAllUpcomingCinemaViewingsAsync();
     }
+
+    public async Task<Movie> GetMovieByIdAsync(int movieId)
+    {
+        return _movieService.GetMovieByIdAsync(movieId);
+    }
+
+
 }
 
 
@@ -52,3 +59,15 @@ https://getbootstrap.com/docs/4.0/components/modal/
 Denna länk kan användas för att kolla i bootstrap om hur man kan skapa en länk för att navigera till en video i youtube
 https://getbootstrap.com/docs/4.0/utilities/embed/
 */ *@
+
+
+@* [
+  {
+    "id": 62,
+    "cinemaViewingId": 23,
+    "quantity": 5,
+    "reservationCode": "9bdb5134-d1f9-4ce7-b389-923d24739543",
+    "email": "Emma@gmail.com",
+    "usedRservationCode": true
+  }
+] *@

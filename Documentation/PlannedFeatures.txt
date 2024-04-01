@@ -1,25 +1,9 @@
 
-Reservation class 
-bool UsedRservationCode = false;
-
-ReservationService class 
-En metod som sätter Reservatione.CheckIfReservationCodeIsUsed till true
 
 
 Return ardalis.Result
 kasta olika exception genom att returnera Result objekt
 
-_________________________________________________________________________________________
-
-
-
-imlpementera apiet i ReservationService klassen för att ge ett advice varje gång en reservation är gjort
-GET https://api.adviceslip.com/advice
-
-
-
-
-imlpementera metoden updateCinemaviewingPlaceQuantity och använd den i ResrevationService
 
 
 länk till en bild 

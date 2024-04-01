@@ -37,7 +37,7 @@ public class EFMovieRepository : IMovieRepository
         return await _dB.Movies.ToListAsync();
     }
 
-    public async Task<Movie> GetMovieById(int id)
+    public async Task<Movie> GetMovieByIdAsync(int id)
     {
         return await _dB.Movies.FindAsync(id);
     }

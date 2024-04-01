@@ -32,7 +32,7 @@ Post http://localhost:5204/movie
 Content-Type: application/json
   
 {
-  "Title": "Stars War",
+  "Title": "Star Wars",
   "Description": "War between Humans and Aliens",
   "Genre": "Action",
   "AgeLimit": 15,
@@ -41,12 +41,13 @@ Content-Type: application/json
   "Actors": ["Jack Jones", "Sara Tailer"],
   "Direction": ["Steven Spielberg"],
   "ReleaseDate": "2021-05-15",
-  "Time": "02:30:00"
+  "Time": "02:30:00",
+  "ImageUrl": "https://images2.fanpop.com/images/photos/8400000/Movie-Posters-movies-8405245-1224-1773.jpg"
 }
 
 ####
 
-DELETE http://localhost:5204/movie/17
+DELETE http://localhost:5204/movie/18
 Content-Type: application/json
 
 #### CinemaViewing ______________________________________________________________________________________________
@@ -61,17 +62,17 @@ Post http://localhost:5204/CinemaViewing
 Content-Type: application/json
   
 {
-  "MovieId": 15,
+  "MovieId": 19,
   "SalonId": 22,
-  "TimeAndDate": "2024-10-10T21:20:00",
-  "Price": 150,
+  "TimeAndDate": "2024-05-10T21:20:00",
+  "Price": 250,
   "PlaceQuantity": 30,
   "Premiere": "2024"
 }
 
 ####
 
-DELETE http://localhost:5204/CinemaViewing/20
+DELETE http://localhost:5204/CinemaViewing/22
 Content-Type: application/json
 
 ####  Reservation ______________________________________________________________________________________________
@@ -85,7 +86,7 @@ GET http://localhost:5204/reservation/59
 
 ####
 
-GET http://localhost:5204/reservation/updateReservationCodeStatus/59
+GET http://localhost:5204/reservation/updateReservationCodeStatus/62
 
 ####
 
@@ -93,19 +94,20 @@ Post http://localhost:5204/reservation
 Content-Type: application/json
   
 {
-  "CinemaViewingId": 22,
+  "CinemaViewingId": 23,
   "Quantity": 5,
   "Email": "Emma@gmail.com"
 }
 
 #### 
 # Här hämtas alla reservationer som tillhör en CinemaViewing
-GET http://localhost:5204/reservation/CinemaViewing/19
+GET http://localhost:5204/reservation/CinemaViewing/23
 
 ####
-DELETE http://localhost:5204/reservation/37
+DELETE http://localhost:5204/reservation/61
 
 
 
-
+###
+GET https://api.adviceslip.com/advice
 

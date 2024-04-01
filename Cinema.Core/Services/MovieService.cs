@@ -43,9 +43,9 @@ public class MovieService
         return null;
     }
 
-    public async Task<Movie> GetMovieById(int id)
+    public async Task<Movie> GetMovieByIdAsync(int id)
     {
-        Movie m = await _iMovieRepo.GetMovieById(id);
+        Movie m = await _iMovieRepo.GetMovieByIdAsync(id);
         if (m != null)
         {
             return m;
