@@ -11,9 +11,7 @@ kasta olika exception genom att returnera Result objekt
 
 _________________________________________________________________________________________
 
-Lägg till ImageUrl egenskapen i Movie klass och det kan vara null?
-Lägg tlll UsedRservationCode egenskapen i Klaasen Reservation
-Tabort migration och databasen uppdatera databasen
+
 
 imlpementera metoden GetMovieById(int id) i MovieService
 
