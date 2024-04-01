@@ -43,4 +43,9 @@ public class EFReservationRepository : IReservationRepository
         }
         return null;
     }
+
+    public async Task<Reservation> GetReservationById(int id)
+    {
+        return await _dB.Reservations.FindAsync(id);
+    }
 }

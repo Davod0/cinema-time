@@ -94,4 +94,14 @@ public class ReservationService
             }
         }
     }
+
+    public async Task<Reservation> GetReservationById(int id)
+    {
+        Reservation r = await _repo.GetReservationById(id);
+        if (r != null)
+        {
+            return r;
+        }
+        throw new KeyNotFoundException("Reservation with the specified ID was not found");
+    }
 }
