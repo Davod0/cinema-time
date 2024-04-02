@@ -11,3 +11,12 @@ vill skcika till user och vilka ska skickas till admin page.
 -I klassen CinemaViewingService i metoden AddCinemaViewingAsync(CinemaViewing cv) kontrolleras om 
 en att En film får bara visas ett visst antal gånger och en film ska inte gå att lägga till en filmvisning i schemat
 samma tid som en annan film visas i samma salong.
+
+
+_ I klassen MoiveController metoden PostMovieAsync använder sig av Authorizations 
+
+New JWT saved with ID 'd6fdec98'.
+Name: user
+Roles: [admin]
+
+Token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InVzZXIiLCJzdWIiOiJ1c2VyIiwianRpIjoiZDZmZGVjOTgiLCJyb2xlIjoiYWRtaW4iLCJhdWQiOlsiaHR0cDovL2xvY2FsaG9zdDo1NzIxNiIsImh0dHBzOi8vbG9jYWxob3N0OjQ0MzM3IiwiaHR0cDovL2xvY2FsaG9zdDo1MjA0IiwiaHR0cHM6Ly9sb2NhbGhvc3Q6NzA3OCJdLCJuYmYiOjE3MTIwOTIxMjMsImV4cCI6MTcxOTk1NDUyMywiaWF0IjoxNzEyMDkyMTI0LCJpc3MiOiJkb3RuZXQtdXNlci1qd3RzIn0.aVkvwirzM1JcwOeH0sYkXQHfQQ_GP3PAN6WYU0CCwho

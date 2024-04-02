@@ -29,11 +29,12 @@ Get http://localhost:5204/movie/16
 ####
 
 Post http://localhost:5204/movie
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6InVzZXIiLCJzdWIiOiJ1c2VyIiwianRpIjoiZDZmZGVjOTgiLCJyb2xlIjoiYWRtaW4iLCJhdWQiOlsiaHR0cDovL2xvY2FsaG9zdDo1NzIxNiIsImh0dHBzOi8vbG9jYWxob3N0OjQ0MzM3IiwiaHR0cDovL2xvY2FsaG9zdDo1MjA0IiwiaHR0cHM6Ly9sb2NhbGhvc3Q6NzA3OCJdLCJuYmYiOjE3MTIwOTIxMjMsImV4cCI6MTcxOTk1NDUyMywiaWF0IjoxNzEyMDkyMTI0LCJpc3MiOiJkb3RuZXQtdXNlci1qd3RzIn0.aVkvwirzM1JcwOeH0sYkXQHfQQ_GP3PAN6WYU0CCwho
 Content-Type: application/json
   
 {
-  "Title": "Star Wars",
-  "Description": "War between Humans and Aliens",
+  "Title": "Batman",
+  "Description": "En man som krigar mot kriminalitet",
   "Genre": "Action",
   "AgeLimit": 15,
   "Language": "English",
