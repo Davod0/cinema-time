@@ -8,9 +8,9 @@ Post http://localhost:5204/salon
 Content-Type: application/json
 
 {
-  "Name": "Large",
-  "Nummber": 1,
-  "ChairQuantity": 50
+  "Name": "Small",
+  "Nummber": 2,
+  "ChairQuantity": 30
 }
 
 ####
@@ -24,7 +24,7 @@ Get http://localhost:5204/movie
 
 ####
 
-Get http://localhost:5204/movie/16
+Get http://localhost:5204/movie/1
 
 ####
 
@@ -33,22 +33,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6I
 Content-Type: application/json
   
 {
-  "Title": "Batman",
-  "Description": "En man som krigar mot kriminalitet",
-  "Genre": "Action",
-  "AgeLimit": 15,
+  "Title": "Spider-Man: Homecoming",
+  "Description": "Peter Parker tries to balance his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man.",
+  "Genre": "Action, Adventure, Sci-Fi",
+  "AgeLimit": 12,
   "Language": "English",
-  "UnderText": "Underlying text",
-  "Actors": ["Jack Jones", "Sara Tailer"],
-  "Direction": ["Steven Spielberg"],
-  "ReleaseDate": "2021-05-15",
-  "Time": "02:30:00",
-  "ImageUrl": "https://images2.fanpop.com/images/photos/8400000/Movie-Posters-movies-8405245-1224-1773.jpg"
+  "UnderText": "English",
+  "Actors": ["Tom Holland", "Michael Keaton", "Zendaya"],
+  "Direction": ["Jon Watts"],
+  "ReleaseDate": "2017-07-07",
+  "Time": "02:13:00",
+  "ImageUrl": "https://th.bing.com/th/id/OIP.o3oFScb8i7J3BqbO-EPbUwHaNK?rs=1&pid=ImgDetMain"
 }
 
 ####
 
-DELETE http://localhost:5204/movie/18
+DELETE http://localhost:5204/movie/3
 Content-Type: application/json
 
 #### CinemaViewing ______________________________________________________________________________________________
@@ -63,11 +63,11 @@ Post http://localhost:5204/CinemaViewing
 Content-Type: application/json
   
 {
-  "MovieId": 1,
-  "SalonId": 1,
-  "TimeAndDate": "2024-05-10T21:20:00",
+  "MovieId": 5,
+  "SalonId": 2,
+  "TimeAndDate": "2024-05-15T21:20:00",
   "Price": 250,
-  "PlaceQuantity": 50,
+  "PlaceQuantity": 30,
   "Premiere": "2024"
 }
 

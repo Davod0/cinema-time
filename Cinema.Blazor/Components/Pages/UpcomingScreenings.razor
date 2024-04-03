@@ -1,0 +1,57 @@
+@page "/UpcomingScreenings"
+@rendermode InteractiveServer
+@using Cinema.Blazor.Components
+@using Cinema.Infrastructure
+@using Cinema.Core
+@inject NavigationManager navigationManager
+@inject CinemaViewingService _cVservice
+@inject MovieService _movieService
+
+<PageTitle>UpcomingScreenings</PageTitle>
+
+
+<div class="container">
+    @foreach (CinemaViewing item in CinemaViewngsList)
+    {    
+        <a href="/UpcomingScreeningsDetails" class="text-decoration-none">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                        <img src="@item.Movie.ImageUrl" class="img-fluid rounded-start" alt="@item.Movie.Title">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title text-black">@item.Movie.Title</h5> <!-- Ändra textfärg till svart -->
+                            <p class="card-text text-black">Show Time: @item.TimeAndDate</p> <!-- Ändra textfärg till svart -->
+                            <p class="card-text text-black">Theater: @item.SalonId</p> <!-- Lägg till SalonId -->
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Price: @item.Price</li>
+                                <li class="list-group-item">Seats Left: @item.PlaceQuantity</li>
+                                <li class="list-group-item">Language: @item.Movie.Language</li>
+                                <li class="list-group-item">Genre: @item.Movie.Genre</li>
+                                <li class="list-group-item">Duration: @item.Movie.Time</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    }
+</div>
+
+
+
+@code
+{
+    List<CinemaViewing> CinemaViewngsList;
+    protected override async Task OnInitializedAsync()
+    {
+        CinemaViewngsList = await _cVservice.GetAllUpcomingCinemaViewingsAsync();
+
+        List<Movie> movies = await _movieService.GetAllMoviesAsync();
+    }
+}
+
+
+
+

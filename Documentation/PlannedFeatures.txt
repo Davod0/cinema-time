@@ -5,6 +5,3 @@ Return ardalis.Result
 kasta olika exception genom att returnera Result objekt
 
 
-
-länk till en bild 
-https://images2.fanpop.com/images/photos/8400000/Movie-Posters-movies-8405245-1224-1773.jpg
