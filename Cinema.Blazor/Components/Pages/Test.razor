@@ -22,15 +22,15 @@
                 <p>Show Time: @CinemaViewing.TimeAndDate</p>
                 <p>Theater: @CinemaViewing.SalonId</p>
                 <p>Reservation:</p>
-                <form>
+                <form @onsubmit="SubmitReservation">
                     <div class="mb-3">
                         <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" @bind="reservation.Email">
                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     </div>
                     <div class="mb-3">
                         <label for="seats" class="form-label">Number of seats</label>
-                        <input type="number" class="form-control" id="seats">
+                        <input type="number" class="form-control" id="seats" @bind="reservation.Quantity">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
@@ -87,6 +87,7 @@ else
 
     [Parameter]
     public int Id { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
         if (Id != 0)
@@ -106,21 +107,24 @@ else
         {
             navigationManager.NavigateTo("/UpcomingScreenings");
         }
+        
+        reservation = new Reservation();
     }
 
-    public async Task AddReservation(Reservation reservation)
+    public async Task SubmitReservation()
     {
         if (reservation != null)
         {
+            reservation.CinemaViewingId = CinemaViewing.Id;
+            
             await _resService.AddReservationAsync(reservation);
+
+            navigationManager.NavigateTo("/ReservationDetails");
+
         }
-
     }
-
 }
  *@
-
-
 
 @* 
 /*

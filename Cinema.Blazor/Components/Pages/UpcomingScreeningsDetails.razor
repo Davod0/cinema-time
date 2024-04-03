@@ -8,8 +8,6 @@
 @inject MovieService _movieService
 @inject ReservationService _resService
 
-<PageTitle>UpcomingScreeningsDetails</PageTitle>
-
 @if (CinemaViewing != null)
 {
     <div class="container">
@@ -68,17 +66,6 @@ else
     <p>Loading...</p>
 }
 
-<style>
-    .flex-container {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .flex-container p {
-        margin-right: 10px;
-    }
-</style>
-
 
 @code
 {
@@ -87,13 +74,12 @@ else
 
     [Parameter]
     public int Id { get; set; }
-
+    
     protected override async Task OnInitializedAsync()
     {
         if (Id != 0)
         {
             List<CinemaViewing> cinemaViewings= await _cVservice.GetAllUpcomingCinemaViewingsAsync();
-
             foreach (var cv in cinemaViewings)
             {
                 if (cv.Id == Id)
@@ -115,12 +101,12 @@ else
     {
         if (reservation != null)
         {
-            // Set values before submitting to database
-            reservation.Quantity = reservation.Quantity;
             reservation.CinemaViewingId = CinemaViewing.Id;
-            reservation.Email = reservation.Email;
             
             await _resService.AddReservationAsync(reservation);
+
+            navigationManager.NavigateTo("/ReservationDetails");
+
         }
     }
 }
