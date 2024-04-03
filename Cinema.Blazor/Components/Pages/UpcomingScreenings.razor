@@ -13,7 +13,7 @@
 <div class="container">
     @foreach (CinemaViewing item in CinemaViewngsList)
     {    
-        <a href="/UpcomingScreeningsDetails" class="text-decoration-none">
+        <a href="/UpcomingScreeningsDetails/@item.Id" class="text-decoration-none">
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
@@ -21,9 +21,9 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title text-black">@item.Movie.Title</h5> <!-- Ändra textfärg till svart -->
-                            <p class="card-text text-black">Show Time: @item.TimeAndDate</p> <!-- Ändra textfärg till svart -->
-                            <p class="card-text text-black">Theater: @item.SalonId</p> <!-- Lägg till SalonId -->
+                            <h5 class="card-title text-black">@item.Movie.Title</h5> 
+                            <p class="card-text text-black">Show Time: @item.TimeAndDate</p> 
+                            <p class="card-text text-black">Theater: @item.SalonId</p> 
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item">Price: @item.Price</li>
                                 <li class="list-group-item">Seats Left: @item.PlaceQuantity</li>
@@ -38,7 +38,6 @@
         </a>
     }
 </div>
-
 
 
 @code
