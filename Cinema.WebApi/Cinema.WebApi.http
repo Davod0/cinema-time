@@ -1,5 +1,5 @@
 
-#### Salon ______________________________________________________________________________________________
+#### Salon _______________________________________________________________________________________________________
 Get http://localhost:5204/salon
 
 ####
@@ -18,7 +18,7 @@ Content-Type: application/json
 DELETE http://localhost:5204/salon/24
 Content-Type: application/json
 
-#### Movie ___________________________________________________________________________________________________
+#### Movie ______________________________________________________________________________________________________
 
 Get http://localhost:5204/movie
 
@@ -51,7 +51,7 @@ Content-Type: application/json
 DELETE http://localhost:5204/movie/3
 Content-Type: application/json
 
-#### CinemaViewing ______________________________________________________________________________________________
+#### CinemaViewing ____________________________________________________________________________________________________
 
 Get http://localhost:5204/CinemaViewing
 
@@ -76,7 +76,7 @@ Content-Type: application/json
 DELETE http://localhost:5204/CinemaViewing/22
 Content-Type: application/json
 
-####  Reservation ______________________________________________________________________________________________
+####  Reservation ______________________________________________________________________________________________________
 
 Get http://localhost:5204/reservation
 
@@ -108,7 +108,6 @@ GET http://localhost:5204/reservation/CinemaViewing/2
 DELETE http://localhost:5204/reservation/3
 
 
-
-###
+###____________________________________________________________________________________________________________________
 GET https://api.adviceslip.com/advice
 

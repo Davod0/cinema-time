@@ -18,7 +18,7 @@
             <div class="col-md-8">
                 <h2>@CinemaViewing.Movie.Title</h2>
                 <p>Show Time: @CinemaViewing.TimeAndDate</p>
-                <p>Theater: @CinemaViewing.SalonId</p>
+                <p>Salon: @CinemaViewing.SalonId</p>
                 <p>Reservation:</p>
                 <form @onsubmit="SubmitReservation">
                     <div class="mb-3">
@@ -105,7 +105,7 @@ else
             
             await _resService.AddReservationAsync(reservation);
 
-            navigationManager.NavigateTo("/ReservationDetails");
+            navigationManager.NavigateTo($"/ReservationDetails/{@reservation.Id}");
 
         }
     }

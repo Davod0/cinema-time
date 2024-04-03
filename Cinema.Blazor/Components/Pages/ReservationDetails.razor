@@ -1,4 +1,4 @@
-@page "/ReservationDetails"
+@page "/ReservationDetails/{id:int}"
 @rendermode InteractiveServer
 @using Cinema.Blazor.Components
 @using Cinema.Infrastructure
@@ -8,7 +8,54 @@
 @inject MovieService _movieService
 @inject ReservationService _resService
 
+@if (reservation != null)
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>Thanks For Your Reservation</h2>
+                <div class="reservation-info">
+                    <p>Your Reservation Code Is:</p>
+                    <div class="reservation-code">@reservation.ReservationCode</div>
+                </div>
+                <p>Total Price: @(reservation.Quantity * reservation.CinemaViewing.Price) kr</p>
+                <button class="btn btn-primary" @onclick="GoToUpcomingScreenings">Back To Upcoming Screenings</button>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p>Loading...</p>
+}
+
+<style>
+    .reservation-code {
+        background-color: black;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 18px;
+    }
+    .reservation-info {
+        margin-bottom: 20px;
+    }
+</style>
 
 
+@code {
+    Reservation reservation;
 
-Hej och välkommen till ReservationDetails
+    [Parameter]
+    public int Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        reservation = await _resService.GetReservationById(Id); 
+    }
+
+    private void GoToUpcomingScreenings()
+    {
+        navigationManager.NavigateTo("/UpcomingScreenings");
+    }
+}

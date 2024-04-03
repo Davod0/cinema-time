@@ -1,5 +1,5 @@
 
-API krav
+API krav____________________________________________________________________________________________________________________________________
 
 - [*] Lägga till nya filmer som skall kunna visas
 - [*] Ta bort filmer
@@ -24,7 +24,7 @@ VG
 - [*] "Checka in" en reservationskod och sätt den som använd (Kommer att användas vid betalning)
 
 
-Regler för systemet:
+Regler för systemet____________________________________________________________________________________________________________________________
 
 - [*] En film får bara visas ett visst antal gånger. Det skall alltså inte gå att lägga till en film i schemat för visningar, om den redan visats max antal gånger.
 - [*] Det ska inte gå att lägga till en filmvisning i schemat samma tid som en annan film visas i samma salong
@@ -32,16 +32,13 @@ Regler för systemet:
 VG
 - [*] Reservationer som är äldre än ett år skall automatiskt tas bort ur databasen.
 
-
-
-
-Hemsidan krav
+Hemsidan krav____________________________________________________________________________________________________________________________________
 
 - [*] Se schemat för kommande filmvisningar
 - [*] Få grundläggande information om filmerna som ska visas
-- [ ] Reservera platser på filmvisning
+- [*] Reservera platser på filmvisning
 VG
-- [ ] Visa det totala priset innan reservationen läggs (se bild)
+- [*] Visa det totala priset innan reservationen läggs (se bild)
 - [ ] Det skall gå att avboka en reservation på valfritt sätt
 - [ ] Använd ett externt api till något på hemsidan, exempelvis ett random advice från https://api.adviceslip.com/, eller mer avancerat: https://developers.themoviedb.org/3/getting-started/introduction
 - [ ] Reviews! Det skall gå att poängsätta filmer samt ge dem ett skriftligt omdöme genom att ange sin reservationskod, men bara efter att filmen visats.

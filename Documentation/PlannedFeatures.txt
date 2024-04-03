@@ -1,6 +1,5 @@
 
 
-
 Return ardalis.Result
 kasta olika exception genom att returnera Result objekt
 
