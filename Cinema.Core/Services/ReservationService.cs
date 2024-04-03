@@ -27,6 +27,8 @@ public class ReservationService
                 if (r.Quantity <= (cinemaViewing.PlaceQuantity - totalReservedPlaces))
                 {
                     cinemaViewing.PlaceQuantity -= r.Quantity;
+                    GenerateReservationCode(r);
+                    r.CinemaViewing = cinemaViewing;
                     return await _repo.AddReservationAsync(r);
                 }
                 else

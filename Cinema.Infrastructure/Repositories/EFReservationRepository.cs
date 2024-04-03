@@ -19,7 +19,7 @@ public class EFReservationRepository : IReservationRepository
 
     public async Task<List<Reservation>> GetAllReservationsAsync()
     {
-        return await _dB.Reservations.ToListAsync();
+        return await _dB.Reservations.Include(r => r.CinemaViewing).ToListAsync();
     }
 
     public async Task<List<Reservation>> GetReservationsForCinemaViewingAsync(int cinemaViewingId)
@@ -27,7 +27,7 @@ public class EFReservationRepository : IReservationRepository
         CinemaViewing? cv = await _dB.CinemaViewings.FindAsync(cinemaViewingId);
         if (cv != null)
         {
-            return await _dB.Reservations.Where(r => r.CinemaViewingId == cinemaViewingId).ToListAsync();
+            return await _dB.Reservations.Include(r => r.CinemaViewing).Where(r => r.CinemaViewingId == cinemaViewingId).ToListAsync();
         }
         return null;
     }
@@ -46,7 +46,7 @@ public class EFReservationRepository : IReservationRepository
 
     public async Task<Reservation> GetReservationById(int id)
     {
-        return await _dB.Reservations.FindAsync(id);
+        return await _dB.Reservations.Include(r => r.CinemaViewing).FirstOrDefaultAsync(r => r.Id == id);
     }
 
     public async Task<bool> SetReservationCodeToUsedAsync(int reservationId)
