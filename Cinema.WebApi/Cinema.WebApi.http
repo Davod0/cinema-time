@@ -96,8 +96,8 @@ Content-Type: application/json
   
 {
   "CinemaViewingId": 2,
-  "Quantity": 5,
-  "Email": "Emma@gmail.com"
+  "Quantity": 9,
+  "Email": "xxxxx@gmail.com"
 }
 
 #### 

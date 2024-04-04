@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace Cinema.Core;
 
 public class ReservationService
@@ -16,15 +18,12 @@ public class ReservationService
         DeleteReservationOlderThanOneYear();
         if (r != null)
         {
-            List<Reservation> listOfReservationsForSpecifiedCinemaV = await _repo.GetReservationsForCinemaViewingAsync(r.CinemaViewingId);
-            var totalReservedPlaces = listOfReservationsForSpecifiedCinemaV.Sum(res => res.Quantity);
-
             List<CinemaViewing> listOfCinemaViewings = await _cvRepo.GetAllCinemaViewingsAsync();
             CinemaViewing? cinemaViewing = listOfCinemaViewings.Where(cv => cv.Id == r.CinemaViewingId).FirstOrDefault();
 
             if (cinemaViewing != null)
             {
-                if (r.Quantity <= (cinemaViewing.PlaceQuantity - totalReservedPlaces))
+                if (r.Quantity <= cinemaViewing.PlaceQuantity)
                 {
                     cinemaViewing.PlaceQuantity -= r.Quantity;
                     GenerateReservationCode(r);

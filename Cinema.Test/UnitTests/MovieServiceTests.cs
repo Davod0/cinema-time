@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Moq;
 using System.Collections.Generic;
 
-public class MovieServiceTest
+public class MovieServiceTests
 {
     [Fact]
     public async void GetMovieByIdAsync_ShouldReturnMovieById()
@@ -41,7 +41,7 @@ public class MovieServiceTest
     }
 
     [Fact]
-    public void AddMovieAsync_ShouldAddMovie()
+    public async Task AddMovieAsync_ShouldAddMovieAndReturnAddedMovie()
     {
         // Arrange
         FakeMovieRepository FmovieRepo = new();
