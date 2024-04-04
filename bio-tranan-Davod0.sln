@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Blazor", "Cinema.Bla
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Test", "Cinema.Test\Cinema.Test.csproj", "{C04C0189-8431-4760-967D-02AA0DAA7DEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.IntegrationsTests", "Cinema.IntegrationsTests\Cinema.IntegrationsTests.csproj", "{AECBADF0-2164-4068-864E-0B0F1A69D106}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{C04C0189-8431-4760-967D-02AA0DAA7DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C04C0189-8431-4760-967D-02AA0DAA7DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C04C0189-8431-4760-967D-02AA0DAA7DEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AECBADF0-2164-4068-864E-0B0F1A69D106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AECBADF0-2164-4068-864E-0B0F1A69D106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AECBADF0-2164-4068-864E-0B0F1A69D106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AECBADF0-2164-4068-864E-0B0F1A69D106}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

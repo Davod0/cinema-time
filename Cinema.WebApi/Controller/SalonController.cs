@@ -13,21 +13,27 @@ public class SalonController : ControllerBase
         _service = salonService;
     }
 
+    // [HttpPost("")]
+    // public async Task<IActionResult> PostSalonAsync(Salon s)
+    // {
+    //     if (await _service.AddSalonAsync(s) != null)
+    //     {
+    //         try
+    //         {
+    //             return Created("/salon", $"{s}");
+    //         }
+    //         catch (Exception e)
+    //         {
+    //             return StatusCode(500);
+    //         }
+    //     }
+    //     return BadRequest();
+    // }
+
     [HttpPost("")]
-    public async Task<IActionResult> PostSalonAsync(Salon s)
+    public async Task<Salon> PostSalonAsync(Salon s)
     {
-        if (await _service.AddSalonAsync(s) != null)
-        {
-            try
-            {
-                return Created("/salon", $"{s}");
-            }
-            catch (Exception e)
-            {
-                return StatusCode(500);
-            }
-        }
-        return BadRequest();
+        return await _service.AddSalonAsync(s);
     }
 
     [HttpGet("")]

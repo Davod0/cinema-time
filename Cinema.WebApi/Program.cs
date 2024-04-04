@@ -3,9 +3,9 @@ namespace Cinema.WebApi;
 using Cinema.Core;
 using Cinema.Infrastructure;
 
-internal class Program
+public class Program
 {
-    private static void Main(string[] args)
+    public static void Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
 
