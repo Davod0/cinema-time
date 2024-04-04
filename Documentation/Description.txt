@@ -7,11 +7,9 @@ försöker jag kasta några exception som sedan fångas upp i ReservationControl
 skickas status kod tillbaka till user webläsaren och man kan även bestäma sig där vilken sort av exception man 
 vill skcika till user och vilka ska skickas till admin page.
 
-
 -I klassen CinemaViewingService i metoden AddCinemaViewingAsync(CinemaViewing cv) kontrolleras om 
 en att En film får bara visas ett visst antal gånger och en film ska inte gå att lägga till en filmvisning i schemat
 samma tid som en annan film visas i samma salong.
-
 
 _ I klassen MoiveController metoden PostMovieAsync använder sig av Authorizations 
 New JWT saved with ID 'd6fdec98'.
