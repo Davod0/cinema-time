@@ -65,7 +65,7 @@ Content-Type: application/json
   
 {
   "MovieId": 4,
-  "SalonId": 2,
+  "SalonId": 1,
   "TimeAndDate": "2024-04-18T20:00:00",
   "Price": 250,
   "PlaceQuantity": 50,
@@ -74,7 +74,7 @@ Content-Type: application/json
 
 ####
 
-DELETE http://localhost:5204/CinemaViewing/5
+DELETE http://localhost:5204/CinemaViewing/6
 Content-Type: application/json
 
 ####  Reservation ______________________________________________________________________________________________________
