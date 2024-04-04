@@ -10,7 +10,7 @@ Content-Type: application/json
 {
   "Name": "Small",
   "Nummber": 2,
-  "ChairQuantity": 30
+  "ChairQuantity": 50
 }
 
 ####
@@ -33,22 +33,23 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6I
 Content-Type: application/json
   
 {
-  "Title": "Spider-Man: Homecoming",
-  "Description": "Peter Parker tries to balance his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man.",
-  "Genre": "Action, Adventure, Sci-Fi",
-  "AgeLimit": 12,
+  "Title": "Rogue Justice",
+  "Description": "In a city overrun by crime and corruption, a rogue detective takes justice into his own hands when the system fails to deliver.",
+  "Genre": "Action, Crime, Drama",
+  "AgeLimit": 15,
   "Language": "English",
   "UnderText": "English",
-  "Actors": ["Tom Holland", "Michael Keaton", "Zendaya"],
-  "Direction": ["Jon Watts"],
-  "ReleaseDate": "2017-07-07",
-  "Time": "02:13:00",
-  "ImageUrl": "https://th.bing.com/th/id/OIP.o3oFScb8i7J3BqbO-EPbUwHaNK?rs=1&pid=ImgDetMain"
+  "Actors": ["Tom Hardy", "Emily Blunt", "Idris Elba"],
+  "Direction": ["Director: Denis Villeneuve"],
+  "ReleaseDate": "2023-09-28",
+  "Time": "02:10:00",
+  "ImageUrl": "https://m.media-amazon.com/images/S/pv-target-images/7b696990bbb53d518a5d6ecbbde94c22e778f170c6f223d57cc9bd5a4fa56aee._SX1080_FMjpg_.jpg"
 }
+
 
 ####
 
-DELETE http://localhost:5204/movie/3
+DELETE http://localhost:5204/movie/1
 Content-Type: application/json
 
 #### CinemaViewing ____________________________________________________________________________________________________
@@ -63,17 +64,17 @@ Post http://localhost:5204/CinemaViewing
 Content-Type: application/json
   
 {
-  "MovieId": 3,
+  "MovieId": 4,
   "SalonId": 2,
-  "TimeAndDate": "2024-05-15T21:20:00",
+  "TimeAndDate": "2024-04-15T20:00:00",
   "Price": 250,
-  "PlaceQuantity": 30,
+  "PlaceQuantity": 50,
   "Premiere": "2024"
 }
 
 ####
 
-DELETE http://localhost:5204/CinemaViewing/22
+DELETE http://localhost:5204/CinemaViewing/1
 Content-Type: application/json
 
 ####  Reservation ______________________________________________________________________________________________________
@@ -105,7 +106,7 @@ Content-Type: application/json
 GET http://localhost:5204/reservation/CinemaViewing/2
 
 ####
-DELETE http://localhost:5204/reservation/3
+DELETE http://localhost:5204/reservation/4
 
 
 ###____________________________________________________________________________________________________________________
