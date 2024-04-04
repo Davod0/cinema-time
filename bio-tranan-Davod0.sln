@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.MinimalWebApi", "Cin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Blazor", "Cinema.Blazor\Cinema.Blazor.csproj", "{A68AB74F-B068-4F98-AA73-0B0FEC2FFEEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cinema.Test", "Cinema.Test\Cinema.Test.csproj", "{C04C0189-8431-4760-967D-02AA0DAA7DEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{A68AB74F-B068-4F98-AA73-0B0FEC2FFEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A68AB74F-B068-4F98-AA73-0B0FEC2FFEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A68AB74F-B068-4F98-AA73-0B0FEC2FFEEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C04C0189-8431-4760-967D-02AA0DAA7DEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C04C0189-8431-4760-967D-02AA0DAA7DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C04C0189-8431-4760-967D-02AA0DAA7DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C04C0189-8431-4760-967D-02AA0DAA7DEE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
