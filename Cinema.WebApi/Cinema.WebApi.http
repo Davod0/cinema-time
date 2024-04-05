@@ -33,23 +33,24 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6I
 Content-Type: application/json
   
 {
-  "Title": "Rogue Justice",
-  "Description": "In a city overrun by crime and corruption, a rogue detective takes justice into his own hands when the system fails to deliver.",
-  "Genre": "Action, Crime, Drama",
-  "AgeLimit": 15,
+  "Title": "Chaos Unleashed",
+  "Description": "In the gritty underbelly of Gotham City, a deranged and anarchic criminal mastermind known as the Joker wreaks havoc.",
+  "Genre": "Thriller, Crime, Drama",
+  "AgeLimit": 18,
   "Language": "English",
   "UnderText": "English",
-  "Actors": ["Tom Hardy", "Emily Blunt", "Idris Elba"],
-  "Direction": ["Director: Denis Villeneuve"],
-  "ReleaseDate": "2023-09-28",
-  "Time": "02:10:00",
-  "ImageUrl": "https://m.media-amazon.com/images/S/pv-target-images/7b696990bbb53d518a5d6ecbbde94c22e778f170c6f223d57cc9bd5a4fa56aee._SX1080_FMjpg_.jpg"
+  "Actors": ["Joaquin Phoenix", "Robert De Niro", "Zazie Beetz"],
+  "Direction": ["Director: Todd Phillips"],
+  "ReleaseDate": "2024-12-05",
+  "Time": "02:25:00",
+  "ImageUrl": "https://i.pinimg.com/originals/b7/1b/d9/b71bd99e46582c4b364dbd0ceb5ae5c5.jpg"
 }
+
 
 
 ####
 
-DELETE http://localhost:5204/movie/1
+DELETE http://localhost:5204/movie/5
 Content-Type: application/json
 
 #### CinemaViewing ____________________________________________________________________________________________________
@@ -64,10 +65,10 @@ Post http://localhost:5204/CinemaViewing
 Content-Type: application/json
   
 {
-  "MovieId": 4,
-  "SalonId": 1,
-  "TimeAndDate": "2024-04-18T20:00:00",
-  "Price": 250,
+  "MovieId": 6,
+  "SalonId": 2,
+  "TimeAndDate": "2024-12-05T20:00:00",
+  "Price": 400,
   "PlaceQuantity": 50,
   "Premiere": "2024"
 }
