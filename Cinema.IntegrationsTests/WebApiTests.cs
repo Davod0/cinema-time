@@ -16,7 +16,7 @@ public class WebApiTests
         // Act
         var response = await client.PostAsJsonAsync("/salon", sa);
 
-        // Assert 
+        // Assert
         response.EnsureSuccessStatusCode();
         Salon? salonResponse = await response.Content.ReadFromJsonAsync<Salon>();
 

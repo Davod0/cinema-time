@@ -15,7 +15,7 @@ public class MovieController : ControllerBase
     }
 
     [HttpPost("")]
-    [Authorize]
+    // [Authorize]
     public async Task<IActionResult> PostMovieAsync(Movie m)
     {
         if (await _service.AddMovieAsync(m) != null)

@@ -25,26 +25,5 @@ public static class DbContextInfrastructure
     }
 }
 
-/*
-    En enklare version av AddDbContext() metoden 
-
-    public static void AddDbContext(IServiceCollection services)
-    {
-        services.AddDbContext<CinemaDbContext>(opt => opt.UseSqlite("Data Source=database.db"));
-
-        // Annat alternativ____
-        // services.AddDbContext<CinemaDbContext>();
-    }
-
-
-    ____________________________________________________________________
-    Denna klass tillhandahåller hjälpmetoder 
-    för att konfigurera databasanlutningen i applikationen.
-    Metoden AddDbContext används i en annan projekts Program.cs-klass för att 
-    avgöra vilken databas projektet kommer att använda, baserat på konfigurationsinställningarna i appsettings.json-filen
-
-*/
-
-
 
 
