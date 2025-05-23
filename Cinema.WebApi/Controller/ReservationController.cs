@@ -99,7 +99,7 @@ public class ReservationController : ControllerBase
             }
             catch (Exception ex)
             {
-                // Här kan man istället för att returnera StatusCode till användare logga den till en admin page
+                // Instead of returning a StatusCode to the user, you can log it to an admin page here
                 return StatusCode(500, ex.Message);
             }
         }
@@ -127,7 +127,7 @@ public class ReservationController : ControllerBase
         }
         catch (Exception ex)
         {
-            // Denna Exception kan användas för att logga den till en admin page
+            // This Exception can be used to log it to an admin page
             return StatusCode(500, ex.Message);
         }
         return BadRequest();

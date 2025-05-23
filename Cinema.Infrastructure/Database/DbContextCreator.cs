@@ -15,10 +15,10 @@ public class DbContextCreator : IDesignTimeDbContextFactory<CinemaDbContext>
 
 /*
   This class is for running migrations.
-  This class implements the IDesignTimeDbContextFactory interface to facilitate 
-  creating an instance of the CinemaDbContext during design-time operations, such as 
-  database migrations and Entity Framework Core tooling commands. 
-  It configures the DbContext to use SQLite as the database engine and specifies 
+  This class implements the IDesignTimeDbContextFactory interface to facilitate
+  creating an instance of the CinemaDbContext during design-time operations, such as
+  database migrations and Entity Framework Core tooling commands.
+  It configures the DbContext to use SQLite as the database engine and specifies
   the path to the SQLite database file
 */
 

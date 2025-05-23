@@ -27,7 +27,8 @@ internal class CinemaWebApplicationFactory : WebApplicationFactory<Cinema.WebApi
         });
     }
 
-    // En metod för att bygga test databasen
+    // One method to create the DbContext
+    // This method is used to create a new scope and get the DbContext
     private static CinemaDbContext CreateDbContext(IServiceCollection services)
     {
         var serviceProvider = services.BuildServiceProvider();
