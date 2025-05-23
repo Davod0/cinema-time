@@ -7,49 +7,103 @@
 @inject CinemaViewingService _cVservice
 @inject MovieService _movieService
 
-<PageTitle>UpcomingScreenings</PageTitle>
+<PageTitle>Upcoming Screenings</PageTitle>
 
-<div class="container">
-    @foreach (CinemaViewing item in CinemaViewngsList)
-    {    
-        <a href="/UpcomingScreeningsDetails/@item.Id" class="text-decoration-none">
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="@item.Movie.ImageUrl" class="img-fluid rounded-start" alt="@item.Movie.Title">
-                    </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title text-black">@item.Movie.Title</h5> 
-                            <p class="card-text text-black">Show Time: @item.TimeAndDate</p> 
-                            <p class="card-text text-black">Salon: @item.SalonId</p> 
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">Price: @item.Price</li>
-                                <li class="list-group-item">Seats Left: @item.PlaceQuantity</li>
-                                <li class="list-group-item">Language: @item.Movie.Language</li>
-                                <li class="list-group-item">Genre: @item.Movie.Genre</li>
-                                <li class="list-group-item">Duration: @item.Movie.Time</li>
-                            </ul>
+<style>
+.card-grid-container {
+    background-color: #1c1c1c;
+    min-height: 100vh;
+    padding: 1rem 0;
+}
+
+.card-custom {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    min-height: 320px;
+}
+
+.card-custom:hover {
+    transform: scale(1.015);
+}
+
+.card-img {
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px 0 0 12px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+.list-group-item {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.card-wrapper {
+    padding: 1rem 0.5rem;
+}
+
+.row.custom-spacing {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.row.custom-spacing > .col-md-6 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+</style>
+
+<div class="card-grid-container">
+    <div class="row custom-spacing gx-5">
+        @foreach (var item in CinemaViewngsList)
+        {
+            <div class="col-md-6 card-wrapper">
+                <a href="/UpcomingScreeningsDetails/@item.Id" class="text-decoration-none text-dark">
+                    <div class="card card-custom h-100">
+                        <div class="row g-0 h-100">
+                            <div class="col-5">
+                                <img src="@item.Movie.ImageUrl" class="img-fluid h-100 card-img" alt="@item.Movie.Title" />
+                            </div>
+                            <div class="col-7 d-flex flex-column">
+                                <div class="card-body">
+                                    <h5 class="card-title">@item.Movie.Title</h5>
+                                    <p class="card-text">Show Time: @item.TimeAndDate</p>
+                                    <p class="card-text">Salon: @item.SalonId</p>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Price: @item.Price</li>
+                                        <li class="list-group-item">Seats Left: @item.PlaceQuantity</li>
+                                        <li class="list-group-item">Language: @item.Movie.Language</li>
+                                        <li class="list-group-item">Genre: @item.Movie.Genre</li>
+                                        <li class="list-group-item">Duration: @item.Movie.Time</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-        </a>
-    }
+        }
+    </div>
 </div>
 
-
-@code
-{
+@code {
     List<CinemaViewing> CinemaViewngsList;
+
     protected override async Task OnInitializedAsync()
     {
         CinemaViewngsList = await _cVservice.GetAllUpcomingCinemaViewingsAsync();
-
         List<Movie> movies = await _movieService.GetAllMoviesAsync();
     }
 }
-
-
-
-
