@@ -57,7 +57,8 @@ public class CinemaViewingService
     public async Task<List<CinemaViewing>> GetAllUpcomingCinemaViewingsAsync()
     {
         List<CinemaViewing> cinemaViewings = await _repo.GetAllCinemaViewingsAsync();
-        var upcomingCinemaViewings = cinemaViewings.Where(cv => cv.TimeAndDate > DateTime.Now).ToList();
+        // var upcomingCinemaViewings = cinemaViewings.Where(cv => cv.TimeAndDate > DateTime.Now).ToList();
+        var upcomingCinemaViewings = cinemaViewings.ToList();
         if (upcomingCinemaViewings != null)
         {
             return upcomingCinemaViewings;
