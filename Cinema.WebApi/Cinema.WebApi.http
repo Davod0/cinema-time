@@ -64,7 +64,7 @@ GET http://localhost:5204/CinemaViewing/uppcoming
 ####
 Post http://localhost:5204/CinemaViewing
 Content-Type: application/json
-  
+
 {
   "MovieId": 6,
   "SalonId": 2,
@@ -96,14 +96,14 @@ GET http://localhost:5204/reservation/updateReservationCodeStatus/62
 
 Post http://localhost:5204/reservation
 Content-Type: application/json
-  
+
 {
   "CinemaViewingId": 2,
   "Quantity": 9,
   "Email": "xxxxx@gmail.com"
 }
 
-#### 
+####
 # Här hämtas alla reservationer som tillhör en CinemaViewing
 GET http://localhost:5204/reservation/CinemaViewing/2
 
