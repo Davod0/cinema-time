@@ -8,41 +8,73 @@
 @inject MovieService _movieService
 @inject ReservationService _resService
 
+<style>
+.reservation-wrapper {
+    background-color: #121212;
+    color: white;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    margin-top: 3rem;
+}
+.reservation-code {
+    background-color: #1f1f1f;
+    color:  #2c5364;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0;
+    display: inline-block;
+    letter-spacing: 1px;
+}
+.btn-custom {
+background-color: #2c5364;
+color: white;
+padding: 0.75rem 1.5rem;
+font-size: 1.1rem;
+border-radius: 8px;
+text-decoration: none;
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-custom:hover {
+background-color: #203a43;
+color: white;
+}
+h2 {
+    margin-bottom: 1rem;
+}
+p {
+    font-size: 1.1rem;
+}
+</style>
+
 @if (reservation != null)
 {
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>Thanks For Your Reservation</h2>
-                <div class="reservation-info">
-                    <p>Your Reservation Code Is:</p>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="reservation-wrapper">
+                    <h2> Thanks for Your Reservation!</h2>
+
+                    <p>Your Reservation Code is:</p>
                     <div class="reservation-code">@reservation.ReservationCode</div>
+
+                    <p><strong>Total Price:</strong> @(reservation.Quantity * reservation.CinemaViewing.Price) kr</p>
+
+                    <button class="btn btn-custom" @onclick="GoToUpcomingScreenings">
+                        Back to Upcoming Screenings
+                    </button>
                 </div>
-                <p>Total Price: @(reservation.Quantity * reservation.CinemaViewing.Price) kr</p>
-                <button class="btn btn-primary" @onclick="GoToUpcomingScreenings">Back To Upcoming Screenings</button>
             </div>
         </div>
     </div>
 }
 else
 {
-    <p>Loading...</p>
+    <p class="text-white p-4">Loading...</p>
 }
-
-<style>
-    .reservation-code {
-        background-color: black;
-        color: white;
-        padding: 10px;
-        border-radius: 5px;
-        font-size: 18px;
-    }
-    .reservation-info {
-        margin-bottom: 20px;
-    }
-</style>
-
-
 
 @code {
     Reservation reservation;
@@ -52,7 +84,7 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        reservation = await _resService.GetReservationById(Id); 
+        reservation = await _resService.GetReservationById(Id);
     }
 
     private void GoToUpcomingScreenings()

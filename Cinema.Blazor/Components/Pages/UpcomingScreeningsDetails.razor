@@ -8,92 +8,152 @@
 @inject MovieService _movieService
 @inject ReservationService _resService
 
+<style>
+.details-wrapper {
+    background-color: black;
+    color: white;
+    padding: 2rem;
+    border-radius: 12px;
+}
+.movie-info {
+    background-color: #1c1c1c;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.form-control {
+    background-color: #2b2b2b;
+    color: white;
+    border: 1px solid #444;
+}
+.form-label, .form-text {
+    color: #ccc;
+}
+.form-control:focus {
+    background-color: #2b2b2b;
+    color: white;
+    border-color: #777;
+    box-shadow: none;
+}
+.btn-custom {
+background-color: #2c5364;
+color: white;
+padding: 0.75rem 1.5rem;
+font-size: 1.1rem;
+border-radius: 8px;
+text-decoration: none;
+transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btn-custom:hover {
+background-color: #203a43;
+color: white;
+}
+h2, h3, h5 {
+    color: #fff;
+    margin-bottom: 0.8rem;
+}
+.poster-wrapper {
+    background-color: #2a2a2a;
+    border-radius: 16px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.poster {
+border-radius: 0%;
+max-height: 360px;
+width: 100%;
+object-fit: contain;
+display: block;
+overflow: hidden;
+clip-path: inset(0 round 24px);
+}
+.info-group p {
+    margin-bottom: 0.4rem;
+}
+</style>
+
 @if (CinemaViewing != null)
 {
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <img src="@CinemaViewing.Movie.ImageUrl" class="img-fluid rounded-start" alt="@CinemaViewing.Movie.Title" style="max-width: 100%;">
-            </div>
-            <div class="col-md-8">
-                <h2>@CinemaViewing.Movie.Title</h2>
-                <p>Show Time: @CinemaViewing.TimeAndDate</p>
-                <p>Salon: @CinemaViewing.SalonId</p>
-                <p>Reservation:</p>
-                <form @onsubmit="SubmitReservation">
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp" @bind="reservation.Email">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div class="page">
+        <div class="container details-wrapper">
+            <div class="row mb-4">
+                <div class="col-md-4">
+                    <div class="poster-wrapper">
+                        <img src="@CinemaViewing.Movie.ImageUrl" alt="@CinemaViewing.Movie.Title" class="poster" />
                     </div>
-                    <div class="mb-3">
-                        <label for="seats" class="form-label">Number of seats</label>
-                        <input type="number" class="form-control" id="seats" @bind="reservation.Quantity">
+                </div>
+                <div class="col-md-8">
+                    <div class="movie-info">
+                        <h2>@CinemaViewing.Movie.Title</h2>
+                        <div class="info-group">
+                            <p><strong>Show Time:</strong> @CinemaViewing.TimeAndDate</p>
+                            <p><strong>Salon:</strong> @CinemaViewing.SalonId</p>
+                        </div>
+
+                        <h5 class="mt-4">🎟️ Make a Reservation</h5>
+                        <form @onsubmit="SubmitReservation">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="email" @bind="reservation.Email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="seats" class="form-label">Number of seats</label>
+                                <input type="number" class="form-control" id="seats" @bind="reservation.Quantity">
+                            </div>
+                            <button type="submit" class="btn btn-custom">Submit Reservation</button>
+                        </form>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
-                <hr>
+                </div>
             </div>
-        </div>
-        <div class="row mt-3"> 
-            <div class="col-md-12">
-                <h3>Movie Description</h3>
+
+            <div class="movie-info">
+                <h3>📖 Description</h3>
                 <p>@CinemaViewing.Movie.Description</p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Actors</h3>
+
+            <div class="movie-info">
+                <h3>🎭 Actors</h3>
                 <p>@String.Join(", ", CinemaViewing.Movie.Actors)</p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Direction</h3>
+
+            <div class="movie-info">
+                <h3>🎬 Direction</h3>
                 <p>@String.Join(", ", CinemaViewing.Movie.Direction)</p>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <h3>Premiere</h3>
-                <p>@CinemaViewing.Movie.ReleaseDate</p>
+
+            <div class="movie-info">
+                <h3>📅 Premiere</h3>
+                <p>@CinemaViewing.Movie.ReleaseDate.ToShortDateString()</p>
             </div>
         </div>
     </div>
 }
 else
 {
-    <p>Loading...</p>
+    <p class="text-white p-4">Loading...</p>
 }
 
-
-@code
-{
+@code {
     Reservation reservation;
     CinemaViewing CinemaViewing;
 
     [Parameter]
     public int Id { get; set; }
-    
     protected override async Task OnInitializedAsync()
     {
         if (Id != 0)
         {
-            List<CinemaViewing> cinemaViewings= await _cVservice.GetAllUpcomingCinemaViewingsAsync();
-            foreach (var cv in cinemaViewings)
-            {
-                if (cv.Id == Id)
-                {
-                    CinemaViewing = cv;
-                    break;
-                }
-            }
+            List<CinemaViewing> cinemaViewings = await _cVservice.GetAllUpcomingCinemaViewingsAsync();
+            CinemaViewing = cinemaViewings.FirstOrDefault(cv => cv.Id == Id);
         }
         else
         {
             navigationManager.NavigateTo("/UpcomingScreenings");
         }
-        
+
         reservation = new Reservation();
     }
 
@@ -102,10 +162,8 @@ else
         if (reservation != null)
         {
             reservation.CinemaViewingId = CinemaViewing.Id;
-            
             await _resService.AddReservationAsync(reservation);
-
-            navigationManager.NavigateTo($"/ReservationDetails/{@reservation.Id}");
+            navigationManager.NavigateTo($"/ReservationDetails/{reservation.Id}");
         }
     }
 }

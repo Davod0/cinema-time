@@ -15,50 +15,42 @@
     min-height: 100vh;
     padding: 1rem 0;
 }
-
 .card-custom {
+    background-color: #1e1e1e;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
     border: none;
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.2s ease;
     min-height: 320px;
+    color: white;
 }
-
+.card-title,
+.card-text,
+.list-group-item {
+    color: white;
+}
+.list-group-item {
+    background-color: transparent;
+}
 .card-custom:hover {
     transform: scale(1.015);
 }
-
 .card-img {
     height: 100%;
     object-fit: cover;
     border-radius: 12px 0 0 12px;
 }
-
 .card-body {
     padding: 1.5rem;
 }
-
-.card-title {
-    font-size: 1.6rem;
-    font-weight: 600;
-}
-
-.list-group-item {
-    border: none;
-    padding-left: 0;
-    padding-right: 0;
-}
-
 .card-wrapper {
     padding: 1rem 0.5rem;
 }
-
 .row.custom-spacing {
     margin-left: 0;
     margin-right: 0;
 }
-
 .row.custom-spacing > .col-md-6 {
     padding-left: 1rem;
     padding-right: 1rem;
