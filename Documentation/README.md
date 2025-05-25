@@ -2,25 +2,25 @@
 
 Cinema-Time is a modular web application that allows users to view upcoming movies and reserve seats for showings. The project uses a Blazor frontend, a Web API backend built with ASP.NET Core, and a SQLite database. It follows clean architecture principles, with separate projects for Core logic, Infrastructure, API, and testing.
 
----
+-----------
 
 ## ▶️ Running the Application
 
-1. Open a terminal and navigate to the `Cinema.WebApi` folder:
+1. Open a terminal and navigate to the `Cinema.WebApi` folder for running trhe Web API:
 
    ```bash
    cd Cinema.WebApi
    dotnet run
    ```
 
-2. Open another terminal and navigate to the `Cinema.Blazor` folder:
+2. Open another terminal and navigate to the `Cinema.Blazor` folder for running the Blazor frontend:
 
    ```bash
    cd Cinema.Blazor
    dotnet run
    ```
 
----
+-----------
 
 ## ✨ Features
 
@@ -31,7 +31,7 @@ Cinema-Time is a modular web application that allows users to view upcoming movi
 * API documented via Swagger
 * Unit and integration testing
 
----
+-----------
 
 ## 📂 Project Structure
 
@@ -46,31 +46,54 @@ Cinema-Time/
 ├── Cinema.Test/              # Unit tests (xUnit, Moq)
 ```
 
----
 
-## Core Layer (`Cinema.Core`)
+## Blazor Client Architecture (Component to Database)
 
-* Contains domain entities like `CinemaViewing`, `Reservation`, `Movie`, `Salon`
-* Interfaces for repository patterns
 
-### Infrastructure Layer (`Cinema.Infrastructure`)
+      ┌────────────────────┐
+      │   Blazor-component │    ← Frontend
+      └────────────────────┘
+             │
+             ▼
+      ┌────────────────────┐
+      │   SalonService     │    ← Service-layer
+      └────────────────────┘
+             │
+             ▼
+┌────────────────────────────┐
+│     ISalonRepository       │    ← Interface (Abstraktion)
+└────────────────────────────┘
+             │
+             ▼
+┌────────────────────────────┐
+│    EFSalonRepository       │    ← Implementing of Entity Framework
+│     (uses DbContext)       │
+└────────────────────────────┘
+             │
+             ▼
+      Databas (SQL Server, etc.)
 
-* Entity Framework Core setup and migrations
-* Repository implementations
-* SQLite configuration
 
-### Web API Layer (`Cinema.WebApi`)
+-----------
 
-* Configures DI, routing, authentication
-* Exposes RESTful endpoints
-* Swagger for API documentation
+## Architecture Overview
 
-### Testing
+[HTTP Request]
+     │
+     ▼
+[🎮 Controller]
+     │
+     ▼
+[🧠 Service Class]
+     │
+     ▼
+[📦 EFRepository ]
+     │
+     ▼
+[🗄️ Database]
 
-* `Cinema.Test`: Unit tests using xUnit
-* `Cinema.IntegrationTests`: Integration tests using `Microsoft.AspNetCore.Mvc.Testing`
 
----
+
 
 ## 🔧 Technologies Used
 
