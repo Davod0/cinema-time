@@ -22,8 +22,20 @@ public class Program
         builder.Services.AddScoped<IReservationRepository, EFReservationRepository>();
         builder.Services.AddControllers();
         builder.Services.AddAuthentication().AddJwtBearer();
+
+        builder.Services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAll", policy =>
+            {
+                policy.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+            });
+        });
+
         builder.Services.AddAuthorization();
         var app = builder.Build();
+        app.UseCors("AllowAll");
         if (app.Environment.IsDevelopment())
         {
             app.UseSwagger();

@@ -76,7 +76,7 @@ Cinema-Time/
 
 -----------
 
-## Architecture Overview
+## API Architecture (From HTTP Request to Database)
 
 [HTTP Request]
      │
