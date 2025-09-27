@@ -4,7 +4,7 @@ Cinema-Time is a modular web application where I demonstrate my skills
 in understanding and implementing a full-stack solution with .NET technologies.
 
 This solution is organized into multiple projects that together form Cinema-Time.
-The Blazor frontend communicates with the ASP.NET Core Web API, while the Core project defines business logic and the Infrastructure layer (SQLite/EF Core) handles data persistence.
+The Blazor frontend communicates with the ASP.NET Core Web API, while the Core project defines business logic and the Infrastructure layer (SQLite/EF) handles data persistence.
 The system is supported by both unit tests and integration tests to ensure reliability and maintainability.
 The application allows users to view upcoming movies and reserve seats for showings.
 
