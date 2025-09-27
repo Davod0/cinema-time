@@ -12,8 +12,7 @@ The project uses a Blazor frontend, a Web API built with ASP.NET Core, and a SQL
 For unit testing, xUnit and Moq are used, while integration tests are implemented with Microsoft.AspNetCore.Mvc.Testing and utilize an in-memory database.
 It follows clean architecture principles with separate projects for Core logic, Infrastructure, API, and testing.
 
-
-
+There is also an admin interface for this project for managing salons, reservations, movies and screenings built on Next.js.
 
 ## ▶️ Running the Application
 
@@ -32,7 +31,7 @@ It follows clean architecture principles with separate projects for Core logic, 
    ```
 
 
-## ▶️ Running the Application the tests
+## ▶️ Running the tests
 
 1. Open a terminal and navigate to the `Cinema.Test` folder for running the unit tests:
 
